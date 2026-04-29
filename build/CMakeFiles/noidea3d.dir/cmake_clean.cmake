@@ -3,6 +3,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/noidea3d.dir/src/baller.cpp.obj.d"
   "CMakeFiles/noidea3d.dir/src/main.cpp.obj"
   "CMakeFiles/noidea3d.dir/src/main.cpp.obj.d"
+  "CMakeFiles/noidea3d.dir/src/texture.cpp.obj"
+  "CMakeFiles/noidea3d.dir/src/texture.cpp.obj.d"
   "libnoidea3d.dll.a"
   "noidea3d.exe"
   "noidea3d.exe.manifest"

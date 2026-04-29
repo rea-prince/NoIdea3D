@@ -1,29 +1,9 @@
 #ifndef BALLER_CPP
 #define BALLER_CPP
 
-#include <iostream>
-
 #include <SDL.h>
 #include <SDL_image.h>
-#include "baller.h"
-
-texWrapper createTexture(SDL_Renderer* renderer) {
-    texWrapper tempTex;
-
-    tempTex.texture = SDL_CreateTexture(
-        renderer,
-        MY_PIXEL_FORMAT,
-        SDL_TEXTUREACCESS_STREAMING,
-        WIDTH, HEIGHT
-    );
-    tempTex.format = SDL_AllocFormat(MY_PIXEL_FORMAT);
-
-    return tempTex;
-}
-void freeTexture(texWrapper* myTex) {
-    SDL_DestroyTexture(myTex->texture);
-    SDL_FreeFormat(myTex->format);
-}
+#include "texture.h"
 
 static void putPixel(Uint16 x, Uint16 y, Uint32 color, void* pixels, Uint32 pitch) {
 
@@ -50,7 +30,7 @@ void drawBall(texWrapper* myTex) {
 
     SDL_LockTexture(myTex->texture, NULL, &pixels, &pitch);
 
-    putPixel(5, 5, color, pixels, pitch);
+    putPixel(56, 5, color, pixels, pitch);
 
     SDL_UnlockTexture(myTex->texture);
 }

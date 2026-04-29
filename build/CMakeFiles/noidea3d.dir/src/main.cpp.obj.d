@@ -338,4 +338,5 @@ CMakeFiles/noidea3d.dir/src/main.cpp.obj: \
  C:/dev/_projects/noidea/include/SDL2/SDL_misc.h \
  C:/dev/_projects/noidea/include/SDL2/SDL_image.h \
  C:/dev/_projects/noidea/include/SDL2/SDL.h \
+ C:/dev/_projects/noidea/include/texture.h \
  C:/dev/_projects/noidea/include/baller.h

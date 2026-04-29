@@ -7,6 +7,7 @@
 #include <SDL.h>
 #include <SDL_image.h>
 
+#include "texture.h"
 #include "baller.h"
 
 int main(int argc, char *argv[]) {

@@ -1,5 +1,5 @@
-CMakeFiles/noidea3d.dir/src/baller.cpp.obj: \
- C:\dev\_projects\noidea\src\baller.cpp \
+CMakeFiles/noidea3d.dir/src/texture.c.obj: \
+ C:\dev\_projects\noidea\src\texture.c \
  C:/dev/_projects/noidea/include/SDL2/SDL.h \
  C:/dev/_projects/noidea/include/SDL2/SDL_main.h \
  C:/dev/_projects/noidea/include/SDL2/SDL_stdinc.h \
@@ -42,12 +42,6 @@ CMakeFiles/noidea3d.dir/src/baller.cpp.obj: \
  C:/ProgramData/mingw64/mingw64/x86_64-w64-mingw32/include/intrin.h \
  C:/ProgramData/mingw64/mingw64/x86_64-w64-mingw32/include/setjmp.h \
  C:/ProgramData/mingw64/mingw64/x86_64-w64-mingw32/include/psdk_inc/intrin-impl.h \
- C:/ProgramData/mingw64/mingw64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/stdlib.h \
- C:/ProgramData/mingw64/mingw64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/cstdlib \
- C:/ProgramData/mingw64/mingw64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/x86_64-w64-mingw32/bits/c++config.h \
- C:/ProgramData/mingw64/mingw64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/x86_64-w64-mingw32/bits/os_defines.h \
- C:/ProgramData/mingw64/mingw64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/x86_64-w64-mingw32/bits/cpu_defines.h \
- C:/ProgramData/mingw64/mingw64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/pstl/pstl_config.h \
  C:/ProgramData/mingw64/mingw64/x86_64-w64-mingw32/include/stdlib.h \
  C:/ProgramData/mingw64/mingw64/x86_64-w64-mingw32/include/corecrt_wstdlib.h \
  C:/ProgramData/mingw64/mingw64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/limits.h \
@@ -57,7 +51,6 @@ CMakeFiles/noidea3d.dir/src/baller.cpp.obj: \
  C:/ProgramData/mingw64/mingw64/x86_64-w64-mingw32/include/malloc.h \
  C:/ProgramData/mingw64/mingw64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/mm_malloc.h \
  C:/ProgramData/mingw64/mingw64/x86_64-w64-mingw32/include/errno.h \
- C:/ProgramData/mingw64/mingw64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/bits/std_abs.h \
  C:/ProgramData/mingw64/mingw64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/x86intrin.h \
  C:/ProgramData/mingw64/mingw64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/x86gprintrin.h \
  C:/ProgramData/mingw64/mingw64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/ia32intrin.h \
