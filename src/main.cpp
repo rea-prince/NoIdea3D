@@ -53,6 +53,10 @@ int main(int argc, char *argv[]) {
         255
     );
 
+    // texture for renderin
+
+    texWrapper myTex = createTexture(renderer_ptr);
+
     /* WINDOW LOOP */
     while (running) {
         while (SDL_PollEvent (&windowEvent)) {
@@ -79,7 +83,8 @@ int main(int argc, char *argv[]) {
 
         /* ------------------------------------------- */
 
-        renderBall(renderer_ptr);
+        drawBall(&myTex);
+        SDL_RenderCopy(renderer_ptr, myTex.texture, NULL, NULL);
 
         /* ------------------------------------------- */
 
@@ -92,6 +97,9 @@ int main(int argc, char *argv[]) {
     ImGui_ImplSDLRenderer2_Shutdown();
     ImGui_ImplSDL2_Shutdown();
     ImGui::DestroyContext();
+
+    /* FREE TEXTURE */
+    freeTexture(&myTex);
 
     /* DESTROY WINDOW */
     SDL_DestroyWindow(window_ptr);

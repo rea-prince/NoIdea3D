@@ -7,7 +7,25 @@
 #include <SDL_image.h>
 #include "baller.h"
 
-static void putPixel(uint16_t x, uint16_t y, uint32_t color, void* pixels, uint32_t pitch) {
+texWrapper createTexture(SDL_Renderer* renderer) {
+    texWrapper tempTex;
+
+    tempTex.texture = SDL_CreateTexture(
+        renderer,
+        MY_PIXEL_FORMAT,
+        SDL_TEXTUREACCESS_STREAMING,
+        WIDTH, HEIGHT
+    );
+    tempTex.format = SDL_AllocFormat(MY_PIXEL_FORMAT);
+
+    return tempTex;
+}
+void freeTexture(texWrapper* myTex) {
+    SDL_DestroyTexture(myTex->texture);
+    SDL_FreeFormat(myTex->format);
+}
+
+static void putPixel(Uint16 x, Uint16 y, Uint32 color, void* pixels, Uint32 pitch) {
 
     /* TRANSLATE COORDINATES */
 
@@ -20,28 +38,21 @@ static void putPixel(uint16_t x, uint16_t y, uint32_t color, void* pixels, uint3
 
     /* DRAW TO TEXTURE */
 
-    uint32_t* targetPixel = (uint32_t*)((uint8_t*)pixels + y * pitch + x * sizeof(uint32_t));
-        *targetPixel = pixelColor;
+    Uint32* targetPixel = (Uint32*)((Uint8*)pixels + y * pitch + x * sizeof(Uint32));
+    *targetPixel = color;
 }
 
-void renderBall(SDL_Renderer* renderer_ptr) {
-    SDL_Texture *myTex = SDL_CreateTexture(
-        renderer_ptr,
-        SDL_PIXELFORMAT_RGBA8888,
-        SDL_TEXTUREACCESS_STREAMING,
-        WIDTH,
-        HEIGHT
-    );
+void drawBall(texWrapper* myTex) {
 
+    Uint32 color = SDL_MapRGBA(myTex->format, 255, 255, 255, 255);
     void* pixels;
-    int pitch = WIDTH * 32;
+    int pitch;
 
-    SDL_LockTexture(myTex, NULL, &pixels, &pitch);
+    SDL_LockTexture(myTex->texture, NULL, &pixels, &pitch);
 
+    putPixel(5, 5, color, pixels, pitch);
 
-
-    SDL_UnlockTexture(myTex);
-
+    SDL_UnlockTexture(myTex->texture);
 }
 
 #endif
