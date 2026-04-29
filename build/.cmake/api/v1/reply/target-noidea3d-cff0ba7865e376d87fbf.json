@@ -1,0 +1,248 @@
+{
+	"artifacts" : 
+	[
+		{
+			"path" : "noidea3d.exe"
+		},
+		{
+			"path" : "noidea3d.pdb"
+		}
+	],
+	"backtrace" : 1,
+	"backtraceGraph" : 
+	{
+		"commands" : 
+		[
+			"add_executable",
+			"target_link_libraries",
+			"target_include_directories"
+		],
+		"files" : 
+		[
+			"CMakeLists.txt"
+		],
+		"nodes" : 
+		[
+			{
+				"file" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 17,
+				"parent" : 0
+			},
+			{
+				"command" : 1,
+				"file" : 0,
+				"line" : 40,
+				"parent" : 0
+			},
+			{
+				"command" : 2,
+				"file" : 0,
+				"line" : 31,
+				"parent" : 0
+			}
+		]
+	},
+	"codemodelVersion" : 
+	{
+		"major" : 2,
+		"minor" : 9
+	},
+	"compileDependencies" : 
+	[
+		{
+			"backtrace" : 2,
+			"id" : "IMGUI_LIB::@6890427a1f51a3e7e1df"
+		}
+	],
+	"compileGroups" : 
+	[
+		{
+			"includes" : 
+			[
+				{
+					"backtrace" : 3,
+					"path" : "C:/dev/_projects/noidea/include/SDL2"
+				},
+				{
+					"backtrace" : 3,
+					"path" : "C:/dev/_projects/noidea/include/imgui"
+				}
+			],
+			"language" : "CXX",
+			"sourceIndexes" : 
+			[
+				0
+			]
+		}
+	],
+	"dependencies" : 
+	[
+		{
+			"backtrace" : 2,
+			"id" : "IMGUI_LIB::@6890427a1f51a3e7e1df"
+		}
+	],
+	"id" : "noidea3d::@6890427a1f51a3e7e1df",
+	"link" : 
+	{
+		"commandFragments" : 
+		[
+			{
+				"backtrace" : 2,
+				"fragment" : "libIMGUI_LIB.a",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 2,
+				"fragment" : "-lmingw32",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 2,
+				"fragment" : "C:\\dev\\_projects\\noidea\\lib\\SDL2\\win\\libSDL2main.a",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 2,
+				"fragment" : "C:\\dev\\_projects\\noidea\\lib\\SDL2\\win\\libSDL2.a",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 2,
+				"fragment" : "C:\\dev\\_projects\\noidea\\lib\\SDL2\\win\\libSDL2_image.a",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 2,
+				"fragment" : "-limm32",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 2,
+				"fragment" : "-lsetupapi",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 2,
+				"fragment" : "-lwinmm",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 2,
+				"fragment" : "-lgdi32",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 2,
+				"fragment" : "-lole32",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 2,
+				"fragment" : "-loleaut32",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 2,
+				"fragment" : "-luuid",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 2,
+				"fragment" : "-lversion",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "-lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32",
+				"role" : "libraries"
+			}
+		],
+		"language" : "CXX"
+	},
+	"linkLibraries" : 
+	[
+		{
+			"backtrace" : 2,
+			"id" : "IMGUI_LIB::@6890427a1f51a3e7e1df"
+		},
+		{
+			"backtrace" : 2,
+			"fragment" : "mingw32"
+		},
+		{
+			"backtrace" : 2,
+			"fragment" : "C:/dev/_projects/noidea/lib/SDL2/win/libSDL2main.a"
+		},
+		{
+			"backtrace" : 2,
+			"fragment" : "C:/dev/_projects/noidea/lib/SDL2/win/libSDL2.a"
+		},
+		{
+			"backtrace" : 2,
+			"fragment" : "C:/dev/_projects/noidea/lib/SDL2/win/libSDL2_image.a"
+		},
+		{
+			"backtrace" : 2,
+			"fragment" : "imm32"
+		},
+		{
+			"backtrace" : 2,
+			"fragment" : "setupapi"
+		},
+		{
+			"backtrace" : 2,
+			"fragment" : "winmm"
+		},
+		{
+			"backtrace" : 2,
+			"fragment" : "gdi32"
+		},
+		{
+			"backtrace" : 2,
+			"fragment" : "ole32"
+		},
+		{
+			"backtrace" : 2,
+			"fragment" : "oleaut32"
+		},
+		{
+			"backtrace" : 2,
+			"fragment" : "uuid"
+		},
+		{
+			"backtrace" : 2,
+			"fragment" : "version"
+		}
+	],
+	"name" : "noidea3d",
+	"nameOnDisk" : "noidea3d.exe",
+	"paths" : 
+	{
+		"build" : ".",
+		"source" : "."
+	},
+	"sourceGroups" : 
+	[
+		{
+			"name" : "Source Files",
+			"sourceIndexes" : 
+			[
+				0
+			]
+		}
+	],
+	"sources" : 
+	[
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "src/main.cpp",
+			"sourceGroupIndex" : 0
+		}
+	],
+	"type" : "EXECUTABLE"
+}

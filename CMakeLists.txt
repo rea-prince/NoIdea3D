@@ -1,0 +1,63 @@
+cmake_minimum_required(VERSION 3.10)
+
+set(PROJECT_NAME "noidea3d")
+set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
+
+# project
+
+project(${PROJECT_NAME}
+  VERSION 1.0
+  DESCRIPTION "A very simple 3D renderer"
+  LANGUAGES C CXX
+)
+
+# main files
+
+file(GLOB SRC_FILES "${CMAKE_SOURCE_DIR}/src/*.cpp")
+add_executable(${PROJECT_NAME} ${SRC_FILES})
+
+# compile imgui
+
+file(GLOB IMGUI_SRC "${CMAKE_SOURCE_DIR}/lib/imgui/*.cpp")
+add_library(IMGUI_LIB STATIC ${IMGUI_SRC})
+target_include_directories(IMGUI_LIB
+  PUBLIC
+  ${CMAKE_SOURCE_DIR}/include/imgui
+  ${CMAKE_SOURCE_DIR}/include/SDL2
+)
+
+# include to project
+
+target_include_directories(${PROJECT_NAME}
+  PUBLIC
+  ${CMAKE_SOURCE_DIR}/include/SDL2
+  ${CMAKE_SOURCE_DIR}/include/imgui
+)
+
+# link to project
+
+if(WIN32)
+  target_link_libraries(${PROJECT_NAME}
+    PUBLIC
+    IMGUI_LIB
+
+    mingw32
+    ${CMAKE_SOURCE_DIR}/lib/SDL2/win/libSDL2main.a
+    ${CMAKE_SOURCE_DIR}/lib/SDL2/win/libSDL2.a
+    ${CMAKE_SOURCE_DIR}/lib/SDL2/win/libSDL2_image.a
+
+    # windows libraries
+    imm32 setupapi winmm gdi32 ole32 oleaut32 uuid version
+  )
+else()
+  find_package(SDL2)
+  find_package(SDL2_image)
+
+  target_link_libraries(${PROJECT_NAME}
+    PUBLIC
+    IMGUI_LIB
+
+    SDL2::SDL2
+    SDL2_image::SDL2_image
+  )
+endif()
