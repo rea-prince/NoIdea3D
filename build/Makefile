@@ -309,6 +309,30 @@ lib/imgui/imgui_widgets.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\IMGUI_LIB.dir\build.make CMakeFiles/IMGUI_LIB.dir/lib/imgui/imgui_widgets.cpp.s
 .PHONY : lib/imgui/imgui_widgets.cpp.s
 
+src/baller.obj: src/baller.cpp.obj
+.PHONY : src/baller.obj
+
+# target to build an object file
+src/baller.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\noidea3d.dir\build.make CMakeFiles/noidea3d.dir/src/baller.cpp.obj
+.PHONY : src/baller.cpp.obj
+
+src/baller.i: src/baller.cpp.i
+.PHONY : src/baller.i
+
+# target to preprocess a source file
+src/baller.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\noidea3d.dir\build.make CMakeFiles/noidea3d.dir/src/baller.cpp.i
+.PHONY : src/baller.cpp.i
+
+src/baller.s: src/baller.cpp.s
+.PHONY : src/baller.s
+
+# target to generate assembly for a file
+src/baller.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\noidea3d.dir\build.make CMakeFiles/noidea3d.dir/src/baller.cpp.s
+.PHONY : src/baller.cpp.s
+
 src/main.obj: src/main.cpp.obj
 .PHONY : src/main.obj
 
@@ -364,6 +388,9 @@ help:
 	@echo ... lib/imgui/imgui_widgets.obj
 	@echo ... lib/imgui/imgui_widgets.i
 	@echo ... lib/imgui/imgui_widgets.s
+	@echo ... src/baller.obj
+	@echo ... src/baller.i
+	@echo ... src/baller.s
 	@echo ... src/main.obj
 	@echo ... src/main.i
 	@echo ... src/main.s

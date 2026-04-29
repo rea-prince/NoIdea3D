@@ -1,5 +1,5 @@
-CMakeFiles/noidea3d.dir/src/main.cpp.obj: \
- C:\dev\_projects\noidea\src\main.cpp \
+CMakeFiles/noidea3d.dir/src/baller.cpp.obj: \
+ C:\dev\_projects\noidea\src\baller.cpp \
  C:/ProgramData/mingw64/mingw64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/iostream \
  C:/ProgramData/mingw64/mingw64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/bits/requires_hosted.h \
  C:/ProgramData/mingw64/mingw64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/x86_64-w64-mingw32/bits/c++config.h \
@@ -147,18 +147,6 @@ CMakeFiles/noidea3d.dir/src/main.cpp.obj: \
  C:/ProgramData/mingw64/mingw64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/bits/ostream.tcc \
  C:/ProgramData/mingw64/mingw64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/istream \
  C:/ProgramData/mingw64/mingw64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/bits/istream.tcc \
- C:/dev/_projects/noidea/include/imgui/imgui.h \
- C:/dev/_projects/noidea/include/imgui/imconfig.h \
- C:/ProgramData/mingw64/mingw64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/float.h \
- C:/ProgramData/mingw64/mingw64/x86_64-w64-mingw32/include/float.h \
- C:/ProgramData/mingw64/mingw64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/stdarg.h \
- C:/ProgramData/mingw64/mingw64/x86_64-w64-mingw32/include/stdarg.h \
- C:/ProgramData/mingw64/mingw64/x86_64-w64-mingw32/include/_mingw_stdarg.h \
- C:/ProgramData/mingw64/mingw64/x86_64-w64-mingw32/include/string.h \
- C:/ProgramData/mingw64/mingw64/x86_64-w64-mingw32/include/sec_api/string_s.h \
- C:/ProgramData/mingw64/mingw64/x86_64-w64-mingw32/include/assert.h \
- C:/dev/_projects/noidea/include/imgui/imgui_impl_sdl2.h \
- C:/dev/_projects/noidea/include/imgui/imgui_impl_sdlrenderer2.h \
  C:/dev/_projects/noidea/include/SDL2/SDL.h \
  C:/dev/_projects/noidea/include/SDL2/SDL_main.h \
  C:/dev/_projects/noidea/include/SDL2/SDL_stdinc.h \
@@ -170,6 +158,9 @@ CMakeFiles/noidea3d.dir/src/main.cpp.obj: \
  C:/ProgramData/mingw64/mingw64/x86_64-w64-mingw32/include/winsdkver.h \
  C:/ProgramData/mingw64/mingw64/x86_64-w64-mingw32/include/winapifamily.h \
  C:/ProgramData/mingw64/mingw64/x86_64-w64-mingw32/include/sdkddkver.h \
+ C:/ProgramData/mingw64/mingw64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/stdarg.h \
+ C:/ProgramData/mingw64/mingw64/x86_64-w64-mingw32/include/stdarg.h \
+ C:/ProgramData/mingw64/mingw64/x86_64-w64-mingw32/include/_mingw_stdarg.h \
  C:/ProgramData/mingw64/mingw64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/stdint.h \
  C:/ProgramData/mingw64/mingw64/x86_64-w64-mingw32/include/stdint.h \
  C:/dev/_projects/noidea/include/SDL2/SDL_assert.h \

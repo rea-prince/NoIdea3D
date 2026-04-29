@@ -30,6 +30,7 @@ target_include_directories(IMGUI_LIB
 
 target_include_directories(${PROJECT_NAME}
   PUBLIC
+  ${CMAKE_SOURCE_DIR}/include
   ${CMAKE_SOURCE_DIR}/include/SDL2
   ${CMAKE_SOURCE_DIR}/include/imgui
 )

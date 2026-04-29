@@ -7,7 +7,7 @@
 #include <SDL.h>
 #include <SDL_image.h>
 
-const int WIDTH = 800, HEIGHT = 800;
+#include "baller.h"
 
 int main(int argc, char *argv[]) {
 
@@ -17,7 +17,7 @@ int main(int argc, char *argv[]) {
     SDL_Window *window_ptr = SDL_CreateWindow(
         "My renderer",
         SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED,
-        800, 800,
+        WIDTH, HEIGHT,
         SDL_WINDOW_SHOWN
     );
     if (!window_ptr) {
@@ -49,7 +49,7 @@ int main(int argc, char *argv[]) {
     bool running = true;
     SDL_SetRenderDrawColor( // background color (rgba)
         renderer_ptr,
-        120, 180, 255,
+        0, 0, 0,
         255
     );
 
@@ -77,12 +77,13 @@ int main(int argc, char *argv[]) {
 
         SDL_RenderClear(renderer_ptr); // clear renderer for imgui
 
-        // ***rendering here renders behind imgui***
+        /* ------------------------------------------- */
 
-        // draw imgui AFTER render clear BEFORE render present
+        renderBall(renderer_ptr);
+
+        /* ------------------------------------------- */
+
         ImGui_ImplSDLRenderer2_RenderDrawData(ImGui::GetDrawData(), renderer_ptr);
-
-        // ***rendering here renders in front of imgui***
 
         SDL_RenderPresent(renderer_ptr);
     }

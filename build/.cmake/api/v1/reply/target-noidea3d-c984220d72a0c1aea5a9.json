@@ -35,7 +35,7 @@
 			{
 				"command" : 1,
 				"file" : 0,
-				"line" : 40,
+				"line" : 41,
 				"parent" : 0
 			},
 			{
@@ -65,6 +65,10 @@
 			[
 				{
 					"backtrace" : 3,
+					"path" : "C:/dev/_projects/noidea/include"
+				},
+				{
+					"backtrace" : 3,
 					"path" : "C:/dev/_projects/noidea/include/SDL2"
 				},
 				{
@@ -75,7 +79,8 @@
 			"language" : "CXX",
 			"sourceIndexes" : 
 			[
-				0
+				0,
+				1
 			]
 		}
 	],
@@ -231,12 +236,19 @@
 			"name" : "Source Files",
 			"sourceIndexes" : 
 			[
-				0
+				0,
+				1
 			]
 		}
 	],
 	"sources" : 
 	[
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "src/baller.cpp",
+			"sourceGroupIndex" : 0
+		},
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
