@@ -60,7 +60,7 @@ int main(int argc, char *argv[]) {
 
     /* WINDOW LOOP */
     while (running) {
-        while (SDL_PollEvent (&windowEvent)) {
+        while (SDL_PollEvent(&windowEvent)) {
             if (SDL_QUIT == windowEvent.type) {
                 running = false;
             }

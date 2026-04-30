@@ -13,7 +13,10 @@ project(${PROJECT_NAME}
 
 # main files
 
-file(GLOB SRC_FILES "${CMAKE_SOURCE_DIR}/src/*.cpp")
+file(GLOB SRC_FILES
+  "${CMAKE_SOURCE_DIR}/src/*.cpp"
+  "${CMAKE_SOURCE_DIR}/src/*.c"
+)
 add_executable(${PROJECT_NAME} ${SRC_FILES})
 
 # compile imgui

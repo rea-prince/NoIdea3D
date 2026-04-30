@@ -5,7 +5,7 @@
 #include <SDL_image.h>
 #include "texture.h"
 
-static void putPixel(Uint16 x, Uint16 y, Uint32 color, void* pixels, Uint32 pitch) {
+static void putPixel(int x, int y, int color, void* pixels, int pitch) {
 
     /* TRANSLATE COORDINATES */
 
@@ -30,7 +30,11 @@ void drawBall(texWrapper* myTex) {
 
     SDL_LockTexture(myTex->texture, NULL, &pixels, &pitch);
 
+    /* DRAW HERE */
+
     putPixel(56, 5, color, pixels, pitch);
+
+    /* --------- */
 
     SDL_UnlockTexture(myTex->texture);
 }
