@@ -9,6 +9,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "C:/dev/_projects/noidea/src/baller.cpp" "CMakeFiles/noidea3d.dir/src/baller.cpp.obj" "gcc" "CMakeFiles/noidea3d.dir/src/baller.cpp.obj.d"
+  "C:/dev/_projects/noidea/src/colors.cpp" "CMakeFiles/noidea3d.dir/src/colors.cpp.obj" "gcc" "CMakeFiles/noidea3d.dir/src/colors.cpp.obj.d"
   "C:/dev/_projects/noidea/src/main.cpp" "CMakeFiles/noidea3d.dir/src/main.cpp.obj" "gcc" "CMakeFiles/noidea3d.dir/src/main.cpp.obj.d"
   "C:/dev/_projects/noidea/src/texture.cpp" "CMakeFiles/noidea3d.dir/src/texture.cpp.obj" "gcc" "CMakeFiles/noidea3d.dir/src/texture.cpp.obj.d"
   )

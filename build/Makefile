@@ -333,6 +333,30 @@ src/baller.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\noidea3d.dir\build.make CMakeFiles/noidea3d.dir/src/baller.cpp.s
 .PHONY : src/baller.cpp.s
 
+src/colors.obj: src/colors.cpp.obj
+.PHONY : src/colors.obj
+
+# target to build an object file
+src/colors.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\noidea3d.dir\build.make CMakeFiles/noidea3d.dir/src/colors.cpp.obj
+.PHONY : src/colors.cpp.obj
+
+src/colors.i: src/colors.cpp.i
+.PHONY : src/colors.i
+
+# target to preprocess a source file
+src/colors.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\noidea3d.dir\build.make CMakeFiles/noidea3d.dir/src/colors.cpp.i
+.PHONY : src/colors.cpp.i
+
+src/colors.s: src/colors.cpp.s
+.PHONY : src/colors.s
+
+# target to generate assembly for a file
+src/colors.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\noidea3d.dir\build.make CMakeFiles/noidea3d.dir/src/colors.cpp.s
+.PHONY : src/colors.cpp.s
+
 src/main.obj: src/main.cpp.obj
 .PHONY : src/main.obj
 
@@ -415,6 +439,9 @@ help:
 	@echo ... src/baller.obj
 	@echo ... src/baller.i
 	@echo ... src/baller.s
+	@echo ... src/colors.obj
+	@echo ... src/colors.i
+	@echo ... src/colors.s
 	@echo ... src/main.obj
 	@echo ... src/main.i
 	@echo ... src/main.s

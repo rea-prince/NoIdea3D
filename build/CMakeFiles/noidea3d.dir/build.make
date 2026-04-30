@@ -86,11 +86,26 @@ CMakeFiles/noidea3d.dir/src/baller.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/noidea3d.dir/src/baller.cpp.s"
 	C:\ProgramData\mingw64\mingw64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\dev\_projects\noidea\src\baller.cpp -o CMakeFiles\noidea3d.dir\src\baller.cpp.s
 
+CMakeFiles/noidea3d.dir/src/colors.cpp.obj: CMakeFiles/noidea3d.dir/flags.make
+CMakeFiles/noidea3d.dir/src/colors.cpp.obj: CMakeFiles/noidea3d.dir/includes_CXX.rsp
+CMakeFiles/noidea3d.dir/src/colors.cpp.obj: C:/dev/_projects/noidea/src/colors.cpp
+CMakeFiles/noidea3d.dir/src/colors.cpp.obj: CMakeFiles/noidea3d.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\dev\_projects\noidea\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/noidea3d.dir/src/colors.cpp.obj"
+	C:\ProgramData\mingw64\mingw64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/noidea3d.dir/src/colors.cpp.obj -MF CMakeFiles\noidea3d.dir\src\colors.cpp.obj.d -o CMakeFiles\noidea3d.dir\src\colors.cpp.obj -c C:\dev\_projects\noidea\src\colors.cpp
+
+CMakeFiles/noidea3d.dir/src/colors.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/noidea3d.dir/src/colors.cpp.i"
+	C:\ProgramData\mingw64\mingw64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\dev\_projects\noidea\src\colors.cpp > CMakeFiles\noidea3d.dir\src\colors.cpp.i
+
+CMakeFiles/noidea3d.dir/src/colors.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/noidea3d.dir/src/colors.cpp.s"
+	C:\ProgramData\mingw64\mingw64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\dev\_projects\noidea\src\colors.cpp -o CMakeFiles\noidea3d.dir\src\colors.cpp.s
+
 CMakeFiles/noidea3d.dir/src/main.cpp.obj: CMakeFiles/noidea3d.dir/flags.make
 CMakeFiles/noidea3d.dir/src/main.cpp.obj: CMakeFiles/noidea3d.dir/includes_CXX.rsp
 CMakeFiles/noidea3d.dir/src/main.cpp.obj: C:/dev/_projects/noidea/src/main.cpp
 CMakeFiles/noidea3d.dir/src/main.cpp.obj: CMakeFiles/noidea3d.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\dev\_projects\noidea\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/noidea3d.dir/src/main.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\dev\_projects\noidea\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/noidea3d.dir/src/main.cpp.obj"
 	C:\ProgramData\mingw64\mingw64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/noidea3d.dir/src/main.cpp.obj -MF CMakeFiles\noidea3d.dir\src\main.cpp.obj.d -o CMakeFiles\noidea3d.dir\src\main.cpp.obj -c C:\dev\_projects\noidea\src\main.cpp
 
 CMakeFiles/noidea3d.dir/src/main.cpp.i: cmake_force
@@ -105,7 +120,7 @@ CMakeFiles/noidea3d.dir/src/texture.cpp.obj: CMakeFiles/noidea3d.dir/flags.make
 CMakeFiles/noidea3d.dir/src/texture.cpp.obj: CMakeFiles/noidea3d.dir/includes_CXX.rsp
 CMakeFiles/noidea3d.dir/src/texture.cpp.obj: C:/dev/_projects/noidea/src/texture.cpp
 CMakeFiles/noidea3d.dir/src/texture.cpp.obj: CMakeFiles/noidea3d.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\dev\_projects\noidea\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/noidea3d.dir/src/texture.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\dev\_projects\noidea\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/noidea3d.dir/src/texture.cpp.obj"
 	C:\ProgramData\mingw64\mingw64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/noidea3d.dir/src/texture.cpp.obj -MF CMakeFiles\noidea3d.dir\src\texture.cpp.obj.d -o CMakeFiles\noidea3d.dir\src\texture.cpp.obj -c C:\dev\_projects\noidea\src\texture.cpp
 
 CMakeFiles/noidea3d.dir/src/texture.cpp.i: cmake_force
@@ -119,6 +134,7 @@ CMakeFiles/noidea3d.dir/src/texture.cpp.s: cmake_force
 # Object files for target noidea3d
 noidea3d_OBJECTS = \
 "CMakeFiles/noidea3d.dir/src/baller.cpp.obj" \
+"CMakeFiles/noidea3d.dir/src/colors.cpp.obj" \
 "CMakeFiles/noidea3d.dir/src/main.cpp.obj" \
 "CMakeFiles/noidea3d.dir/src/texture.cpp.obj"
 
@@ -126,6 +142,7 @@ noidea3d_OBJECTS = \
 noidea3d_EXTERNAL_OBJECTS =
 
 noidea3d.exe: CMakeFiles/noidea3d.dir/src/baller.cpp.obj
+noidea3d.exe: CMakeFiles/noidea3d.dir/src/colors.cpp.obj
 noidea3d.exe: CMakeFiles/noidea3d.dir/src/main.cpp.obj
 noidea3d.exe: CMakeFiles/noidea3d.dir/src/texture.cpp.obj
 noidea3d.exe: CMakeFiles/noidea3d.dir/build.make
@@ -136,7 +153,7 @@ noidea3d.exe: C:/dev/_projects/noidea/lib/SDL2/win/libSDL2_image.a
 noidea3d.exe: CMakeFiles/noidea3d.dir/linkLibs.rsp
 noidea3d.exe: CMakeFiles/noidea3d.dir/objects1.rsp
 noidea3d.exe: CMakeFiles/noidea3d.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=C:\dev\_projects\noidea\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Linking CXX executable noidea3d.exe"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=C:\dev\_projects\noidea\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Linking CXX executable noidea3d.exe"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles\noidea3d.dir\link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

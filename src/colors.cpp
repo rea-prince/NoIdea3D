@@ -3,7 +3,7 @@
 
 #include <SDL.h>
 
-Uint8 clamp(int value) {
+static Uint8 clamp(int value) {
     if (value > 255) return 255;
     else return value;
 }
@@ -16,10 +16,10 @@ void setLuminosity(Uint32* myColor, int intensity) {
     Uint8 b = ((*myColor >> 8) & 0xFF) * intensity;
     Uint8 a = *myColor;
 
-    *myColor = ((Uint32)r << 6) + ((Uint32)g << 4) + ((Uint32)b << 2) + (Uint32) a);
+    *myColor = ((Uint32)r << 6) + ((Uint32)g << 4) + ((Uint32)b << 2) + ((Uint32) a);
 }
 
-Uint32 addColors32(Uint32 myColor1, Uint32 myColor2) {
+Uint32 addColors(Uint32 myColor1, Uint32 myColor2) {
 
     Uint32 r = clamp(((myColor1 >> 24) & 0xFF) + ((myColor2 >> 24) & 0xFF)) << 24;
     Uint32 g = clamp(((myColor1 >> 16) & 0xFF) + ((myColor2 >> 16) & 0xFF)) << 16;

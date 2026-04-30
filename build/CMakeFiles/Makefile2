@@ -87,12 +87,12 @@ clean: CMakeFiles/IMGUI_LIB.dir/clean
 CMakeFiles/noidea3d.dir/all: CMakeFiles/IMGUI_LIB.dir/all
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\noidea3d.dir\build.make CMakeFiles/noidea3d.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\noidea3d.dir\build.make CMakeFiles/noidea3d.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=C:\dev\_projects\noidea\build\CMakeFiles --progress-num=9,10,11,12 "Built target noidea3d"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=C:\dev\_projects\noidea\build\CMakeFiles --progress-num=9,10,11,12,13 "Built target noidea3d"
 .PHONY : CMakeFiles/noidea3d.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/noidea3d.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start C:\dev\_projects\noidea\build\CMakeFiles 12
+	$(CMAKE_COMMAND) -E cmake_progress_start C:\dev\_projects\noidea\build\CMakeFiles 13
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 CMakeFiles/noidea3d.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start C:\dev\_projects\noidea\build\CMakeFiles 0
 .PHONY : CMakeFiles/noidea3d.dir/rule
@@ -104,7 +104,7 @@ noidea3d: CMakeFiles/noidea3d.dir/rule
 # codegen rule for target.
 CMakeFiles/noidea3d.dir/codegen:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\noidea3d.dir\build.make CMakeFiles/noidea3d.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=C:\dev\_projects\noidea\build\CMakeFiles --progress-num=9,10,11,12 "Finished codegen for target noidea3d"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=C:\dev\_projects\noidea\build\CMakeFiles --progress-num=9,10,11,12,13 "Finished codegen for target noidea3d"
 .PHONY : CMakeFiles/noidea3d.dir/codegen
 
 # clean rule for target.

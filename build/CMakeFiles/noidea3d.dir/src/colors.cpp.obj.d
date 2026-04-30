@@ -1,5 +1,5 @@
-CMakeFiles/noidea3d.dir/src/baller.cpp.obj: \
- C:\dev\_projects\noidea\src\baller.cpp \
+CMakeFiles/noidea3d.dir/src/colors.cpp.obj: \
+ C:\dev\_projects\noidea\src\colors.cpp \
  C:/dev/_projects/noidea/include/SDL2/SDL.h \
  C:/dev/_projects/noidea/include/SDL2/SDL_main.h \
  C:/dev/_projects/noidea/include/SDL2/SDL_stdinc.h \
@@ -208,8 +208,4 @@ CMakeFiles/noidea3d.dir/src/baller.cpp.obj: \
  C:/dev/_projects/noidea/include/SDL2/SDL_timer.h \
  C:/dev/_projects/noidea/include/SDL2/SDL_version.h \
  C:/dev/_projects/noidea/include/SDL2/SDL_locale.h \
- C:/dev/_projects/noidea/include/SDL2/SDL_misc.h \
- C:/dev/_projects/noidea/include/SDL2/SDL_image.h \
- C:/dev/_projects/noidea/include/SDL2/SDL.h \
- C:/dev/_projects/noidea/include/texture.h \
- C:/dev/_projects/noidea/include/colors.h
+ C:/dev/_projects/noidea/include/SDL2/SDL_misc.h

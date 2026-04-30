@@ -4,6 +4,7 @@
 #include <SDL.h>
 #include <SDL_image.h>
 #include "texture.h"
+#include "colors.h"
 
 static void putPixel(int x, int y, int color, void* pixels, int pitch) {
 
