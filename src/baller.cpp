@@ -26,7 +26,7 @@
  * @param pitch Number of pixels per row
  * @return void
  */
-static void putPixel(int x, int y, uint32_t color, void* pixels, int pitch) {
+static inline void putPixel(int x, int y, uint32_t color, void* pixels, int pitch) {
 
     /* TRANSLATE COORDINATES */
 
@@ -51,7 +51,7 @@ static void putPixel(int x, int y, uint32_t color, void* pixels, int pitch) {
  * @param y Vertical coordinate
  * @return Vec3d A 3d vector based on the canvas starting from the origin
  */
-static Vec3d canvasToViewport(int x, int y) {
+static inline Vec3d canvasToViewport(int x, int y) {
     return (Vec3d) {
         .x = x * (WIDTH_V / WIDTH_C),
         .y = -y * (HEIGHT_V / HEIGHT_C),
@@ -141,9 +141,8 @@ void drawBall(texWrapper* myTex, Scene* myScene) {
 
     /* DRAW IMAGE */
 
-    for (int x = -WIDTH_C / 2; x < WIDTH_C / 2; x++) {
-        for (int y = -HEIGHT_C / 2; y < HEIGHT_C / 2; y++) {
-
+    for (int y = -HEIGHT_C / 2; y < HEIGHT_C / 2; y++) {
+        for (int x = -WIDTH_C / 2; x < WIDTH_C / 2; x++) {
             vpVec = {
                 x * scaleX,
                 -y * scaleY,

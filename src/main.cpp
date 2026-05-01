@@ -72,8 +72,10 @@ int main(int argc, char *argv[]) {
         .radius = 1,
         .color = SDL_MapRGBA(myTex.format, 0, 255, 0, 255)
     };
+    drawBall(&myTex, &myScene);
 
     /* WINDOW LOOP */
+
     while(running) {
         while (SDL_PollEvent(&windowEvent)) {
             if (SDL_QUIT == windowEvent.type) {
@@ -104,7 +106,6 @@ int main(int argc, char *argv[]) {
 
         /* ------------------------------------------- */
 
-        drawBall(&myTex, &myScene);
         SDL_RenderCopy(renderer_ptr, myTex.texture, NULL, NULL);
 
         /* ------------------------------------------- */
@@ -115,14 +116,17 @@ int main(int argc, char *argv[]) {
     }
 
     /* CLOSE IMGUI */
+
     ImGui_ImplSDLRenderer2_Shutdown();
     ImGui_ImplSDL2_Shutdown();
     ImGui::DestroyContext();
 
     /* FREE TEXTURE */
+
     freeTexture(&myTex);
 
     /* DESTROY WINDOW */
+
     SDL_DestroyWindow(window_ptr);
     SDL_Quit();
     return EXIT_SUCCESS;
