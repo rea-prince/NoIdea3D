@@ -7,7 +7,7 @@
 #include "vec.h"
 
 typedef struct Sphere {
-    Vec3d center;
+    Point3d center;
     float radius;
     uint32_t color;
 } Sphere;

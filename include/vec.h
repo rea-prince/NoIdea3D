@@ -7,7 +7,9 @@ typedef struct Vec3d {
     float z;
 } Vec3d;
 
-typedef struct Vec {
+typedef Vec3d Point3d;
+
+typedef struct Pair {
     float t1;
     float t2;
 } Pair;

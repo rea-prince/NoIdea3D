@@ -14,10 +14,18 @@
 #define WIDTH_V  1.0f
 #define HEIGHT_V 1.0f
 #define DISTANCE 1.0f
-// #define INFINITY 99
 
 /* NECESSARY FUNCTIONS */
 
+
+/* Places a pixel at location x, y with respect to the Canvas dimensions
+ *
+ * @param x Horizontal coordinate
+ * @param y Vertical coordinate
+ * @param color Color to be assigned to the pixel
+ * @param pitch Number of pixels per row
+ * @return void
+ */
 static void putPixel(int x, int y, uint32_t color, void* pixels, int pitch) {
 
     /* TRANSLATE COORDINATES */
@@ -31,10 +39,18 @@ static void putPixel(int x, int y, uint32_t color, void* pixels, int pitch) {
 
     /* DRAW TO TEXTURE */
 
-    uint32_t* targetPixel = (uint32_t*)((uint8_t*) pixels + y * pitch + x * sizeof(uint32_t));
+    uint32_t* targetPixel = (uint32_t*)((uint8_t*) pixels + (y * pitch) + x * sizeof(uint32_t));
     *targetPixel = color;
 }
 
+
+/* Converts an x and y coordinate from pixels to a float or an arbitrary
+ * unit equivalent to the viewport
+ *
+ * @param x Horizontal coordinate
+ * @param y Vertical coordinate
+ * @return Vec3d A 3d vector based on the canvas starting from the origin
+ */
 static Vec3d canvasToViewport(int x, int y) {
     return (Vec3d) {
         .x = x * (WIDTH_V / WIDTH_C),
@@ -43,12 +59,21 @@ static Vec3d canvasToViewport(int x, int y) {
     };
 }
 
-static Pair intersectRaySphere(Vec3d origin, Vec3d dest, Sphere sphere) {
+
+/* Solves for points where the ray and sphere intersect using the equation
+ * t^2 <vD, vD> + t (2<vCO, vD>) + <vCO, vCO> - r^2 = 0
+ *
+ * @param origin Location of the camera (where the ray originates)
+ * @param vpVec Vector coming from the origin
+ * @param sphere Contents of the sphere (center, radius, color)
+ * @return Pair Points where the ray intersects with the sphere
+ */
+static Pair intersectRaySphere(Point3d origin, Vec3d vpVec, Sphere sphere) {
 
     Vec3d co = subtractVec(origin, sphere.center);
 
-    float a = dotVec(dest, dest);
-    float b = 2 * dotVec(co, dest);
+    float a = dotVec(vpVec, vpVec);
+    float b = 2 * dotVec(co, vpVec);
     float c = dotVec(co, co) - (sphere.radius * sphere.radius);
 
     float discriminant = b*b - 4*a*c;
@@ -64,46 +89,68 @@ static Pair intersectRaySphere(Vec3d origin, Vec3d dest, Sphere sphere) {
     };
 }
 
-static uint32_t traceRay(Scene* scene, Vec3d origin, Vec3d dest, float minT, float maxT) {
-    float closestT = maxT;
-    Sphere closestSphere = {0};
+
+/* Finds the closest intersecting point from any of the spheres in the scene
+ * and returns its color
+ *
+ * @param scene Pointer to the current scene
+ * @param origin Location of the camera (where the ray originates)
+ * @param vpVec Vector coming from the origin
+ * @param min Minimum value of the closest point
+ * @param max Maximum value of the closest point
+ * @return uint32_t Color of the closest point that intersect
+ */
+static uint32_t traceRaySphere(Scene* scene, Point3d origin, Vec3d vpVec, float min, float max) {
+    float closestT = max;
+    uint32_t closestSphereColor = 0;
 
     for (int i = 0; i < scene->numSpheres; i++) {
-        Pair solutions = intersectRaySphere(origin, dest, scene->spheres[i]);
-        if (solutions.t1 >= minT && solutions.t1 < maxT && solutions.t1 < closestT) {
+        Pair solutions = intersectRaySphere(origin, vpVec, scene->spheres[i]);
+
+        if (solutions.t1 >= min && solutions.t1 < max && solutions.t1 < closestT) {
             closestT = solutions.t1;
-            closestSphere = scene->spheres[i];
+            closestSphereColor = scene->spheres[i].color;
         }
-        if (solutions.t2 >= minT && solutions.t2 < maxT && solutions.t2 < closestT) {
+        if (solutions.t2 >= min && solutions.t2 < max && solutions.t2 < closestT) {
             closestT = solutions.t2;
-            closestSphere = scene->spheres[i];
+            closestSphereColor = scene->spheres[i].color;
         }
     }
 
-    if (closestSphere.color == 0) {
+    if (closestSphereColor == 0) {
         return 0xFFFFFFFF;
     }
-    return closestSphere.color;
+    return closestSphereColor;
 }
 
 /* DRAWING FUNCTIONS */
 
 void drawBall(texWrapper* myTex, Scene* myScene) {
 
-    uint32_t color = SDL_MapRGBA(myTex->format, 255, 255, 255, 255);
     void* pixels;
     int pitch;
 
     SDL_LockTexture(myTex->texture, NULL, &pixels, &pitch);
 
-    /* DRAW HERE */
+    static float scaleX = WIDTH_V / WIDTH_C;
+    static float scaleY = HEIGHT_V / HEIGHT_C;
 
-    Vec3d origin = {0};
+    static Point3d origin = {0};
+    Vec3d vpVec;
+    uint32_t color;
+
+    /* DRAW IMAGE */
 
     for (int x = -WIDTH_C / 2; x < WIDTH_C / 2; x++) {
         for (int y = -HEIGHT_C / 2; y < HEIGHT_C / 2; y++) {
-            Vec3d dest = canvasToViewport(x, y); // vector from the camera (origin) to viewport
-            uint32_t color = traceRay(myScene, origin, dest, 1, INFINITY);
+
+            vpVec = {
+                x * scaleX,
+                -y * scaleY,
+                DISTANCE
+            }; // vector from the camera (origin) to viewport
+
+            color = traceRaySphere(myScene, origin, vpVec, 1, INFINITY);
             putPixel(x, y, color, pixels, pitch);
         }
     }
