@@ -46,16 +46,29 @@ int main(int argc, char *argv[]) {
 
     /* ------------------------------------------- */
 
-    SDL_Event windowEvent; // input
-    bool running = true;
-
-    // texture for renderin
-
     texWrapper myTex = createTexture(renderer_ptr);
 
-    /* SCENE */
+    /* SCENE SETUP */
 
-    Scene myScene = {.numSpheres = 3};
+    Scene myScene = {
+        .numLights = 3,
+        .numSpheres = 3
+    };
+
+    myScene.lights[0] = {
+        .type = AMBIENT,
+        .intensity = 0.2
+    };
+    myScene.lights[1] = {
+        .position = {2, 1, 0},
+        .type = POINT,
+        .intensity = 0.6
+    };
+    myScene.lights[2] = {
+        .direction = {1, 4, 4},
+        .type = DIRECTIONAL,
+        .intensity = 0.2
+    };
 
     myScene.spheres[0] = (Sphere) {
         .center = {0, -1, 3},
@@ -75,6 +88,9 @@ int main(int argc, char *argv[]) {
     drawBall(&myTex, &myScene);
 
     /* WINDOW LOOP */
+
+    SDL_Event windowEvent; // input
+    bool running = true;
 
     while(running) {
         while (SDL_PollEvent(&windowEvent)) {
@@ -97,11 +113,6 @@ int main(int argc, char *argv[]) {
 
         ImGui::Render();
 
-        SDL_SetRenderDrawColor( // background color (rgba)
-            renderer_ptr,
-            255, 255, 255,
-            255
-        );
         SDL_RenderClear(renderer_ptr); // clear renderer for imgui
 
         /* ------------------------------------------- */

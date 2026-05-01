@@ -1,10 +1,17 @@
 #ifndef OBJECTS_H
 #define OBJECTS_H
 
-#define MAX_SPHERES 3
-
 #include <SDL.h>
 #include "vec.h"
+
+#define MAX_SPHERES 3
+#define MAX_LIGHTING 3
+
+enum LightType {
+    AMBIENT = 0,
+    POINT = 1,
+    DIRECTIONAL = 2
+};
 
 typedef struct Sphere {
     Point3d center;
@@ -12,8 +19,17 @@ typedef struct Sphere {
     uint32_t color;
 } Sphere;
 
+typedef struct Light {
+    Point3d position;
+    Vec3d direction;
+    LightType type;
+    float intensity;
+} Light;
+
 typedef struct Scene {
     Sphere spheres[MAX_SPHERES];
+    Light lights[MAX_LIGHTING];
+    int numLights;
     int numSpheres;
 } Scene;
 

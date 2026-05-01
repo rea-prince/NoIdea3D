@@ -45,7 +45,7 @@ static inline void putPixel(int x, int y, uint32_t color, void* pixels, int pitc
 
 
 /* Converts an x and y coordinate from pixels to a float or an arbitrary
- * unit equivalent to the viewport
+ * unit equivalent to the units used by the viewport
  *
  * @param x Horizontal coordinate
  * @param y Vertical coordinate
@@ -121,6 +121,42 @@ static uint32_t traceRaySphere(Scene* scene, Point3d origin, Vec3d vpVec, float 
         return 0xFFFFFFFF;
     }
     return closestSphereColor;
+}
+
+
+/* Computes for the total intensity of light at a specific point in the scene
+ *
+ * @param scene Pointer to the current scene
+ * @param Point3d Point to determine the light intensity of
+ * @param normal The direction of the normal line at the given point
+ * @return float Total intensity of light at the given point
+ */
+static float computeLighting(Scene* scene, Point3d point, Vec3d normal) {
+    float intensity = 0.0, dotted;
+    Light* lights = scene->lights;
+    Vec3d reflect;
+
+    for (int i = 0; i < scene->numLights; i++) {
+        if (lights[i].type == AMBIENT) {
+            intensity += lights[i].intensity;
+        } else {
+            if (lights[i].type == POINT) {
+                reflect = subtractVec(lights[i].position, point);
+            } else {
+                reflect = lights[i].direction;
+            }
+
+            dotted = dotVec(normal, reflect);
+
+            if (dotted > 0) {
+                intensity += (
+                    lights[i].intensity * dotted /
+                    (sqrt(dotVec(normal, normal)) * sqrt(dotVec(reflect, reflect)))
+                );
+            }
+        }
+    }
+    return intensity;
 }
 
 /* DRAWING FUNCTIONS */
