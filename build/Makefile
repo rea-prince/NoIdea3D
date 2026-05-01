@@ -405,6 +405,30 @@ src/texture.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\noidea3d.dir\build.make CMakeFiles/noidea3d.dir/src/texture.cpp.s
 .PHONY : src/texture.cpp.s
 
+src/vec.obj: src/vec.cpp.obj
+.PHONY : src/vec.obj
+
+# target to build an object file
+src/vec.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\noidea3d.dir\build.make CMakeFiles/noidea3d.dir/src/vec.cpp.obj
+.PHONY : src/vec.cpp.obj
+
+src/vec.i: src/vec.cpp.i
+.PHONY : src/vec.i
+
+# target to preprocess a source file
+src/vec.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\noidea3d.dir\build.make CMakeFiles/noidea3d.dir/src/vec.cpp.i
+.PHONY : src/vec.cpp.i
+
+src/vec.s: src/vec.cpp.s
+.PHONY : src/vec.s
+
+# target to generate assembly for a file
+src/vec.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\noidea3d.dir\build.make CMakeFiles/noidea3d.dir/src/vec.cpp.s
+.PHONY : src/vec.cpp.s
+
 # Help Target
 help:
 	@echo The following are some of the valid targets for this Makefile:
@@ -448,6 +472,9 @@ help:
 	@echo ... src/texture.obj
 	@echo ... src/texture.i
 	@echo ... src/texture.s
+	@echo ... src/vec.obj
+	@echo ... src/vec.i
+	@echo ... src/vec.s
 .PHONY : help
 
 

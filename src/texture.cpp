@@ -12,7 +12,7 @@ texWrapper createTexture(SDL_Renderer* renderer) {
         renderer,
         MY_PIXEL_FORMAT,
         SDL_TEXTUREACCESS_STREAMING,
-        WIDTH, HEIGHT
+        WIDTH_C, HEIGHT_C
     );
     tempTex.format = SDL_AllocFormat(MY_PIXEL_FORMAT);
 

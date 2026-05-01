@@ -12,6 +12,7 @@ set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "C:/dev/_projects/noidea/src/colors.cpp" "CMakeFiles/noidea3d.dir/src/colors.cpp.obj" "gcc" "CMakeFiles/noidea3d.dir/src/colors.cpp.obj.d"
   "C:/dev/_projects/noidea/src/main.cpp" "CMakeFiles/noidea3d.dir/src/main.cpp.obj" "gcc" "CMakeFiles/noidea3d.dir/src/main.cpp.obj.d"
   "C:/dev/_projects/noidea/src/texture.cpp" "CMakeFiles/noidea3d.dir/src/texture.cpp.obj" "gcc" "CMakeFiles/noidea3d.dir/src/texture.cpp.obj.d"
+  "C:/dev/_projects/noidea/src/vec.cpp" "CMakeFiles/noidea3d.dir/src/vec.cpp.obj" "gcc" "CMakeFiles/noidea3d.dir/src/vec.cpp.obj.d"
   )
 
 # Targets to which this target links which contain Fortran sources.

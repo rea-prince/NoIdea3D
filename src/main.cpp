@@ -1,5 +1,3 @@
-#include <iostream>
-
 #include <imgui.h>
 #include <imgui_impl_sdl2.h>
 #include <imgui_impl_sdlrenderer2.h>
@@ -8,6 +6,8 @@
 #include <SDL_image.h>
 
 #include "texture.h"
+#include "objects.h"
+
 #include "baller.h"
 
 int main(int argc, char *argv[]) {
@@ -18,7 +18,7 @@ int main(int argc, char *argv[]) {
     SDL_Window *window_ptr = SDL_CreateWindow(
         "My renderer",
         SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED,
-        WIDTH, HEIGHT,
+        WIDTH_C, HEIGHT_C,
         SDL_WINDOW_SHOWN
     );
     if (!window_ptr) {
@@ -48,18 +48,33 @@ int main(int argc, char *argv[]) {
 
     SDL_Event windowEvent; // input
     bool running = true;
-    SDL_SetRenderDrawColor( // background color (rgba)
-        renderer_ptr,
-        255, 255, 255,
-        255
-    );
 
     // texture for renderin
 
     texWrapper myTex = createTexture(renderer_ptr);
 
+    /* SCENE */
+
+    Scene myScene = {.numSpheres = 3};
+
+    myScene.spheres[0] = (Sphere) {
+        .center = {0, -1, 3},
+        .radius = 1,
+        .color = SDL_MapRGBA(myTex.format, 255, 0, 0, 255)
+    };
+    myScene.spheres[1] = (Sphere) {
+        .center = {2, 0, 4},
+        .radius = 1,
+        .color = SDL_MapRGBA(myTex.format, 0, 0, 255, 255)
+    };
+    myScene.spheres[2] = (Sphere) {
+        .center = {-2, 0, 4},
+        .radius = 1,
+        .color = SDL_MapRGBA(myTex.format, 0, 255, 0, 255)
+    };
+
     /* WINDOW LOOP */
-    while (running) {
+    while(running) {
         while (SDL_PollEvent(&windowEvent)) {
             if (SDL_QUIT == windowEvent.type) {
                 running = false;
@@ -80,11 +95,16 @@ int main(int argc, char *argv[]) {
 
         ImGui::Render();
 
+        SDL_SetRenderDrawColor( // background color (rgba)
+            renderer_ptr,
+            255, 255, 255,
+            255
+        );
         SDL_RenderClear(renderer_ptr); // clear renderer for imgui
 
         /* ------------------------------------------- */
 
-        drawBall(&myTex);
+        drawBall(&myTex, &myScene);
         SDL_RenderCopy(renderer_ptr, myTex.texture, NULL, NULL);
 
         /* ------------------------------------------- */
