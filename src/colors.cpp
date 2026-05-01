@@ -10,13 +10,13 @@ static uint8_t clamp(int value) {
 
 // this assumes the colors fit in 32 bits :))
 
-void setLuminosity(uint32_t* myColor, int intensity) {
+void setLuminosity(uint32_t* myColor, float intensity) {
     uint8_t r = ((*myColor >> 24) & 0xFF) * intensity;
     uint8_t g = ((*myColor >> 16) & 0xFF) * intensity;
     uint8_t b = ((*myColor >> 8) & 0xFF) * intensity;
     uint8_t a = *myColor;
 
-    *myColor = ((uint32_t)r << 6) + ((uint32_t)g << 4) + ((uint32_t)b << 2) + ((uint32_t) a);
+    *myColor = ((uint32_t)r << 24) + ((uint32_t)g << 16) + ((uint32_t)b << 8) + ((uint32_t) a);
 }
 
 uint32_t addColors(uint32_t myColor1, uint32_t myColor2) {

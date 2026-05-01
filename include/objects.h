@@ -4,8 +4,8 @@
 #include <SDL.h>
 #include "vec.h"
 
-#define MAX_SPHERES 3
-#define MAX_LIGHTING 3
+#define MAX_SPHERES 4
+#define MAX_LIGHTING 4
 
 enum LightType {
     AMBIENT = 0,

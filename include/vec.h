@@ -14,6 +14,8 @@ typedef struct Pair {
     float t2;
 } Pair;
 
+Vec3d normalizeVec(Vec3d vec);
+Vec3d scalarProdVec(Vec3d vec, float multiplier);
 float dotVec(Vec3d a, Vec3d b);
 Vec3d subtractVec(Vec3d a, Vec3d b);
 Vec3d addVec(Vec3d a, Vec3d b);

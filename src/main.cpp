@@ -52,7 +52,7 @@ int main(int argc, char *argv[]) {
 
     Scene myScene = {
         .numLights = 3,
-        .numSpheres = 3
+        .numSpheres = 4
     };
 
     myScene.lights[0] = {
@@ -70,20 +70,25 @@ int main(int argc, char *argv[]) {
         .intensity = 0.2
     };
 
-    myScene.spheres[0] = (Sphere) {
+    myScene.spheres[0] = {
         .center = {0, -1, 3},
         .radius = 1,
         .color = SDL_MapRGBA(myTex.format, 255, 0, 0, 255)
     };
-    myScene.spheres[1] = (Sphere) {
+    myScene.spheres[1] = {
         .center = {2, 0, 4},
         .radius = 1,
         .color = SDL_MapRGBA(myTex.format, 0, 0, 255, 255)
     };
-    myScene.spheres[2] = (Sphere) {
+    myScene.spheres[2] = {
         .center = {-2, 0, 4},
         .radius = 1,
         .color = SDL_MapRGBA(myTex.format, 0, 255, 0, 255)
+    };
+    myScene.spheres[3] = {
+        .center = {0, -5001, 0},
+        .radius = 5000,
+        .color = SDL_MapRGBA(myTex.format, 255, 255, 0, 255)
     };
     drawBall(&myTex, &myScene);
 

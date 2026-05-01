@@ -5,6 +5,30 @@
 
 #include "vec.h"
 
+/* NORMALIZE */
+
+Vec3d normalizeVec(Vec3d vec) {
+    float magnitude = sqrt(dotVec(vec, vec));
+    if (magnitude > 0.0f) {
+        return (Vec3d) {
+            .x = vec.x / magnitude,
+            .y = vec.y / magnitude,
+            .z = vec.z / magnitude
+        };
+    }
+    return (Vec3d) {0};
+}
+
+/* SCALAR PRODUCT */
+
+Vec3d scalarProdVec(Vec3d vec, float multiplier) {
+    return (Vec3d) {
+        .x = vec.x * multiplier,
+        .y = vec.y * multiplier,
+        .z = vec.z * multiplier
+    };
+}
+
 /* DOT PRODUCT */
 
 float dotVec(Vec3d a, Vec3d b) {
