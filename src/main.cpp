@@ -50,7 +50,7 @@ int main(int argc, char *argv[]) {
     bool running = true;
     SDL_SetRenderDrawColor( // background color (rgba)
         renderer_ptr,
-        0, 0, 0,
+        255, 255, 255,
         255
     );
 

@@ -1,8 +1,8 @@
 #ifndef TEXTURE_H
 #define TEXTURE_H
 
-#define WIDTH 800
-#define HEIGHT 800
+#define WIDTH_C 800
+#define HEIGHT_C 800
 #define MY_PIXEL_FORMAT SDL_PIXELFORMAT_RGBA8888
 
 typedef struct texWrapper {
