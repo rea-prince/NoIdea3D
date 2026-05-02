@@ -11,11 +11,11 @@
   freely, subject to the following restrictions:
 
   1. The origin of this software must not be misrepresented; you must not
-     claim that you wrote the original software. If you use this software
-     in a product, an acknowledgment in the product documentation would be
-     appreciated but is not required.
+   claim that you wrote the original software. If you use this software
+   in a product, an acknowledgment in the product documentation would be
+   appreciated but is not required.
   2. Altered source versions must be plainly marked as such, and must not be
-     misrepresented as being the original software.
+   misrepresented as being the original software.
   3. This notice may not be removed or altered from any source distribution.
 */
 
@@ -113,17 +113,17 @@
 #define HAVE_ATAN   1
 #define HAVE_ATAN2  1
 #define HAVE_CEIL   1
-#define HAVE_COS    1
-#define HAVE_EXP    1
+#define HAVE_COS  1
+#define HAVE_EXP  1
 #define HAVE_FABS   1
 #define HAVE_FLOOR  1
 #define HAVE_FMOD   1
-#define HAVE_LOG    1
+#define HAVE_LOG  1
 #define HAVE_LOG10  1
-#define HAVE_POW    1
-#define HAVE_SIN    1
+#define HAVE_POW  1
+#define HAVE_SIN  1
 #define HAVE_SQRT   1
-#define HAVE_TAN    1
+#define HAVE_TAN  1
 #define HAVE_ACOSF  1
 #define HAVE_ASINF  1
 #define HAVE_ATANF  1
@@ -180,9 +180,9 @@
 #define SDL_JOYSTICK_DINPUT 1
 #define SDL_JOYSTICK_HIDAPI 1
 #define SDL_JOYSTICK_RAWINPUT   1
-#define SDL_JOYSTICK_VIRTUAL    1
+#define SDL_JOYSTICK_VIRTUAL  1
 #ifdef HAVE_WINDOWS_GAMING_INPUT_H
-#define SDL_JOYSTICK_WGI    1
+#define SDL_JOYSTICK_WGI  1
 #endif
 #define SDL_JOYSTICK_XINPUT 1
 #define SDL_HAPTIC_DINPUT   1
@@ -192,7 +192,7 @@
 #ifdef HAVE_SENSORSAPI_H
 #define SDL_SENSOR_WINDOWS  1
 #else
-#define SDL_SENSOR_DUMMY    1
+#define SDL_SENSOR_DUMMY  1
 #endif
 
 /* Enable various shared object loading systems */
@@ -207,10 +207,10 @@
 
 /* Enable various video drivers */
 #define SDL_VIDEO_DRIVER_DUMMY  1
-#define SDL_VIDEO_DRIVER_WINDOWS    1
+#define SDL_VIDEO_DRIVER_WINDOWS  1
 
 #ifndef SDL_VIDEO_RENDER_D3D
-#define SDL_VIDEO_RENDER_D3D    1
+#define SDL_VIDEO_RENDER_D3D  1
 #endif
 #if !defined(SDL_VIDEO_RENDER_D3D11) && defined(HAVE_D3D11_H)
 #define SDL_VIDEO_RENDER_D3D11  1
@@ -221,22 +221,22 @@
 
 /* Enable OpenGL support */
 #ifndef SDL_VIDEO_OPENGL
-#define SDL_VIDEO_OPENGL    1
+#define SDL_VIDEO_OPENGL  1
 #endif
 #ifndef SDL_VIDEO_OPENGL_WGL
-#define SDL_VIDEO_OPENGL_WGL    1
+#define SDL_VIDEO_OPENGL_WGL  1
 #endif
 #ifndef SDL_VIDEO_RENDER_OGL
-#define SDL_VIDEO_RENDER_OGL    1
+#define SDL_VIDEO_RENDER_OGL  1
 #endif
 #ifndef SDL_VIDEO_RENDER_OGL_ES2
-#define SDL_VIDEO_RENDER_OGL_ES2    1
+#define SDL_VIDEO_RENDER_OGL_ES2  1
 #endif
 #ifndef SDL_VIDEO_OPENGL_ES2
-#define SDL_VIDEO_OPENGL_ES2    1
+#define SDL_VIDEO_OPENGL_ES2  1
 #endif
 #ifndef SDL_VIDEO_OPENGL_EGL
-#define SDL_VIDEO_OPENGL_EGL    1
+#define SDL_VIDEO_OPENGL_EGL  1
 #endif
 
 /* Enable Vulkan support */

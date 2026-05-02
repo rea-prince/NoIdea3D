@@ -7,22 +7,22 @@
 
 texWrapper
 createTexture(SDL_Renderer* renderer) {
-    texWrapper tempTex;
+  texWrapper tempTex;
 
-    tempTex.texture = SDL_CreateTexture(
-        renderer,
-        MY_PIXEL_FORMAT,
-        SDL_TEXTUREACCESS_STREAMING,
-        WIDTH_C, HEIGHT_C
-    );
-    tempTex.format = SDL_AllocFormat(MY_PIXEL_FORMAT);
+  tempTex.texture = SDL_CreateTexture(
+    renderer,
+    MY_PIXEL_FORMAT,
+    SDL_TEXTUREACCESS_STREAMING,
+    WIDTH_C, HEIGHT_C
+  );
+  tempTex.format = SDL_AllocFormat(MY_PIXEL_FORMAT);
 
-    return tempTex;
+  return tempTex;
 }
 void
 freeTexture(texWrapper* myTex) {
-    SDL_DestroyTexture(myTex->texture);
-    SDL_FreeFormat(myTex->format);
+  SDL_DestroyTexture(myTex->texture);
+  SDL_FreeFormat(myTex->format);
 }
 
 #endif

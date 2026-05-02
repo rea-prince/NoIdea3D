@@ -42,16 +42,16 @@ target_include_directories(${PROJECT_NAME}
 
 if(WIN32)
   target_link_libraries(${PROJECT_NAME}
-    PUBLIC
-    IMGUI_LIB
+  PUBLIC
+  IMGUI_LIB
 
-    mingw32
-    ${CMAKE_SOURCE_DIR}/lib/SDL2/win/libSDL2main.a
-    ${CMAKE_SOURCE_DIR}/lib/SDL2/win/libSDL2.a
-    ${CMAKE_SOURCE_DIR}/lib/SDL2/win/libSDL2_image.a
+  mingw32
+  ${CMAKE_SOURCE_DIR}/lib/SDL2/win/libSDL2main.a
+  ${CMAKE_SOURCE_DIR}/lib/SDL2/win/libSDL2.a
+  ${CMAKE_SOURCE_DIR}/lib/SDL2/win/libSDL2_image.a
 
-    # windows libraries
-    imm32 setupapi winmm gdi32 ole32 oleaut32 uuid version
+  # windows libraries
+  imm32 setupapi winmm gdi32 ole32 oleaut32 uuid version
   )
 else()
 
@@ -61,10 +61,10 @@ else()
   find_package(SDL2_image)
 
   target_link_libraries(${PROJECT_NAME}
-    PUBLIC
-    IMGUI_LIB
+  PUBLIC
+  IMGUI_LIB
 
-    SDL2::SDL2
-    SDL2_image::SDL2_image
+  SDL2::SDL2
+  SDL2_image::SDL2_image
   )
 endif()

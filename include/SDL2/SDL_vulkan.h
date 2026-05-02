@@ -11,11 +11,11 @@
   freely, subject to the following restrictions:
 
   1. The origin of this software must not be misrepresented; you must not
-     claim that you wrote the original software. If you use this software
-     in a product, an acknowledgment in the product documentation would be
-     appreciated but is not required.
+   claim that you wrote the original software. If you use this software
+   in a product, an acknowledgment in the product documentation would be
+   appreciated but is not required.
   2. Altered source versions must be plainly marked as such, and must not be
-     misrepresented as being the original software.
+   misrepresented as being the original software.
   3. This notice may not be removed or altered from any source distribution.
 */
 
@@ -65,7 +65,7 @@ typedef VkSurfaceKHR SDL_vulkanSurface; /* for compatibility with Tizen */
  *  \name Vulkan support functions
  *
  *  \note SDL_Vulkan_GetInstanceExtensions & SDL_Vulkan_CreateSurface API
- *        is compatable with Tizen's implementation of Vulkan in SDL.
+ *    is compatable with Tizen's implementation of Vulkan in SDL.
  */
 /* @{ */
 
@@ -103,7 +103,7 @@ typedef VkSurfaceKHR SDL_vulkanSurface; /* for compatibility with Tizen */
  *
  * \param path The platform dependent Vulkan loader library name or NULL.
  * \returns 0 on success or -1 if the library couldn't be loaded; call
- *          SDL_GetError() for more information.
+ *      SDL_GetError() for more information.
  *
  * \since This function is available since SDL 2.0.6.
  *
@@ -150,11 +150,11 @@ extern DECLSPEC void SDLCALL SDL_Vulkan_UnloadLibrary(void);
  * however, this parameter will likely be removed in future releases
  *
  * \param window A window for which the required Vulkan instance extensions
- *               should be retrieved (will be deprecated in a future release).
+ *         should be retrieved (will be deprecated in a future release).
  * \param pCount A pointer to an unsigned int corresponding to the number of
- *               extensions to be returned.
+ *         extensions to be returned.
  * \param pNames NULL or a pointer to an array to be filled with required
- *               Vulkan instance extensions.
+ *         Vulkan instance extensions.
  * \returns SDL_TRUE on success, SDL_FALSE on error.
  *
  * \since This function is available since SDL 2.0.6.
@@ -162,8 +162,8 @@ extern DECLSPEC void SDLCALL SDL_Vulkan_UnloadLibrary(void);
  * \sa SDL_Vulkan_CreateSurface
  */
 extern DECLSPEC SDL_bool SDLCALL SDL_Vulkan_GetInstanceExtensions(SDL_Window *window,
-                                                                  unsigned int *pCount,
-                                                                  const char **pNames);
+                                  unsigned int *pCount,
+                                  const char **pNames);
 
 /**
  * Create a Vulkan rendering surface for a window.
@@ -175,7 +175,7 @@ extern DECLSPEC SDL_bool SDLCALL SDL_Vulkan_GetInstanceExtensions(SDL_Window *wi
  * \param window The window to which to attach the Vulkan surface.
  * \param instance The Vulkan instance handle.
  * \param surface A pointer to a VkSurfaceKHR handle to output the newly
- *                created surface.
+ *        created surface.
  * \returns SDL_TRUE on success, SDL_FALSE on error.
  *
  * \since This function is available since SDL 2.0.6.
@@ -184,8 +184,8 @@ extern DECLSPEC SDL_bool SDLCALL SDL_Vulkan_GetInstanceExtensions(SDL_Window *wi
  * \sa SDL_Vulkan_GetDrawableSize
  */
 extern DECLSPEC SDL_bool SDLCALL SDL_Vulkan_CreateSurface(SDL_Window *window,
-                                                          VkInstance instance,
-                                                          VkSurfaceKHR* surface);
+                              VkInstance instance,
+                              VkSurfaceKHR* surface);
 
 /**
  * Get the size of the window's underlying drawable dimensions in pixels.
@@ -206,7 +206,7 @@ extern DECLSPEC SDL_bool SDLCALL SDL_Vulkan_CreateSurface(SDL_Window *window,
  * \sa SDL_Vulkan_CreateSurface
  */
 extern DECLSPEC void SDLCALL SDL_Vulkan_GetDrawableSize(SDL_Window * window,
-                                                        int *w, int *h);
+                            int *w, int *h);
 
 /* @} *//* Vulkan support functions */
 

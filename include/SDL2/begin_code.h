@@ -11,11 +11,11 @@
   freely, subject to the following restrictions:
 
   1. The origin of this software must not be misrepresented; you must not
-     claim that you wrote the original software. If you use this software
-     in a product, an acknowledgment in the product documentation would be
-     appreciated but is not required.
+   claim that you wrote the original software. If you use this software
+   in a product, an acknowledgment in the product documentation would be
+   appreciated but is not required.
   2. Altered source versions must be plainly marked as such, and must not be
-     misrepresented as being the original software.
+   misrepresented as being the original software.
   3. This notice may not be removed or altered from any source distribution.
 */
 
@@ -35,19 +35,19 @@
 
 #ifndef SDL_DEPRECATED
 #  if defined(__GNUC__) && (__GNUC__ >= 4)  /* technically, this arrived in gcc 3.1, but oh well. */
-#    define SDL_DEPRECATED __attribute__((deprecated))
+#  define SDL_DEPRECATED __attribute__((deprecated))
 #  elif defined(_MSC_VER)
-#    define SDL_DEPRECATED __declspec(deprecated)
+#  define SDL_DEPRECATED __declspec(deprecated)
 #  else
-#    define SDL_DEPRECATED
+#  define SDL_DEPRECATED
 #  endif
 #endif
 
 #ifndef SDL_UNUSED
 #  ifdef __GNUC__
-#    define SDL_UNUSED __attribute__((unused))
+#  define SDL_UNUSED __attribute__((unused))
 #  else
-#    define SDL_UNUSED
+#  define SDL_UNUSED
 #  endif
 #endif
 
@@ -61,9 +61,9 @@
 #  endif
 # elif defined(__OS2__)
 #   ifdef BUILD_SDL
-#    define DECLSPEC    __declspec(dllexport)
+#  define DECLSPEC  __declspec(dllexport)
 #   else
-#    define DECLSPEC
+#  define DECLSPEC
 #   endif
 # else
 #  if defined(__GNUC__) && __GNUC__ >= 4
@@ -121,9 +121,9 @@
 #if defined(__GNUC__)
 #define SDL_INLINE __inline__
 #elif defined(_MSC_VER) || defined(__BORLANDC__) || \
-      defined(__DMC__) || defined(__SC__) || \
-      defined(__WATCOMC__) || defined(__LCC__) || \
-      defined(__DECC) || defined(__CC_ARM)
+    defined(__DMC__) || defined(__SC__) || \
+    defined(__WATCOMC__) || defined(__LCC__) || \
+    defined(__DECC) || defined(__CC_ARM)
 #define SDL_INLINE __inline
 #ifndef __inline__
 #define __inline__ __inline
@@ -169,7 +169,7 @@
 
 #ifndef SDL_FALLTHROUGH
 #if (defined(__cplusplus) && __cplusplus >= 201703L) || \
-    (defined(__STDC_VERSION__) && __STDC_VERSION__ >= 202000L)
+  (defined(__STDC_VERSION__) && __STDC_VERSION__ >= 202000L)
 #define SDL_FALLTHROUGH [[fallthrough]]
 #else
 #if defined(__has_attribute) && !defined(__SUNPRO_C) && !defined(__SUNPRO_CC)
@@ -179,7 +179,7 @@
 #endif /* __has_attribute */
 #if SDL_HAS_FALLTHROUGH && \
    ((defined(__GNUC__) && __GNUC__ >= 7) || \
-    (defined(__clang_major__) && __clang_major__ >= 10))
+  (defined(__clang_major__) && __clang_major__ >= 10))
 #define SDL_FALLTHROUGH __attribute__((__fallthrough__))
 #else
 #define SDL_FALLTHROUGH do {} while (0) /* fallthrough */
