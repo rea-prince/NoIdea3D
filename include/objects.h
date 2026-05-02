@@ -8,29 +8,29 @@
 #define MAX_LIGHTING 4
 
 enum LightType {
-    AMBIENT = 0,
-    POINT = 1,
+    AMBIENT     = 0,
+    POINT       = 1,
     DIRECTIONAL = 2
 };
 
 typedef struct Sphere {
-    Point3d center;
-    float radius;
+    Point3d  center;
+    float    radius;
     uint32_t color;
 } Sphere;
 
 typedef struct Light {
-    Point3d position;
-    Vec3d direction;
+    Point3d   position;
+    Vec3d     direction;
     LightType type;
-    float intensity;
+    float     intensity;
 } Light;
 
 typedef struct Scene {
     Sphere spheres[MAX_SPHERES];
-    Light lights[MAX_LIGHTING];
-    int numLights;
-    int numSpheres;
+    Light  lights[MAX_LIGHTING];
+    int    numLights;
+    int    numSpheres;
 } Scene;
 
 

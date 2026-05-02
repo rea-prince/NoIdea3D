@@ -260,12 +260,6 @@ CMAKE_TAPI:FILEPATH=CMAKE_TAPI-NOTFOUND
 // Studio IDE projects all commands are done without /nologo.
 CMAKE_VERBOSE_MAKEFILE:BOOL=FALSE
 
-//The directory containing a CMake configuration file for SDL2.
-SDL2_DIR:PATH=SDL2_DIR-NOTFOUND
-
-//The directory containing a CMake configuration file for SDL2_image.
-SDL2_image_DIR:PATH=SDL2_image_DIR-NOTFOUND
-
 //Value Computed by CMake
 noidea3d_BINARY_DIR:STATIC=C:/dev/_projects/noidea/build
 

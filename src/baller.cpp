@@ -26,7 +26,8 @@
  * @param pitch Number of pixels per row
  * @return void
  */
-static inline void putPixel(int x, int y, uint32_t color, void* pixels, int pitch) {
+static inline void
+putPixel(int x, int y, uint32_t color, void* pixels, int pitch) {
 
     /* TRANSLATE COORDINATES */
 
@@ -51,7 +52,8 @@ static inline void putPixel(int x, int y, uint32_t color, void* pixels, int pitc
  * @param y Vertical coordinate
  * @return Vec3d A 3d vector based on the canvas starting from the origin
  */
-static inline Vec3d canvasToViewport(int x, int y) {
+static inline Vec3d
+canvasToViewport(int x, int y) {
     return (Vec3d) {
         .x = x * (WIDTH_V / WIDTH_C),
         .y = -y * (HEIGHT_V / HEIGHT_C),
@@ -68,7 +70,8 @@ static inline Vec3d canvasToViewport(int x, int y) {
  * @param sphere Contents of the sphere (center, radius, color)
  * @return Pair Points where the ray intersects with the sphere
  */
-static Pair intersectRaySphere(Point3d origin, Vec3d vpVec, Sphere sphere) {
+static Pair
+intersectRaySphere(Point3d origin, Vec3d vpVec, Sphere sphere) {
 
     Vec3d co = subtractVec(origin, sphere.center);
 
@@ -97,10 +100,11 @@ static Pair intersectRaySphere(Point3d origin, Vec3d vpVec, Sphere sphere) {
  * @param normal The direction of the normal line at the given point
  * @return float Total intensity of light at the given point
  */
-static float computeLighting(Scene* scene, Point3d point, Vec3d normal) {
-    float intensity = 0.0, dotted;
-    Light* lights = scene->lights;
-    Vec3d reflect;
+static float
+computeLighting(Scene* scene, Point3d point, Vec3d normal) {
+    float  intensity = 0.0, dotted;
+    Light* lights    = scene->lights;
+    Vec3d  reflect;
 
     for (int i = 0; i < scene->numLights; i++) {
         if (lights[i].type == AMBIENT) {
@@ -136,11 +140,12 @@ static float computeLighting(Scene* scene, Point3d point, Vec3d normal) {
  * @param max Maximum value of the closest point
  * @return uint32_t Color of the closest point that intersect
  */
-static uint32_t traceRaySphere(Scene* scene, Point3d origin, Vec3d vpVec, float min, float max) {
-    float closestT = max;
+static uint32_t
+traceRaySphere(Scene* scene, Point3d origin, Vec3d vpVec, float min, float max) {
+    float  closestT      = max;
     Sphere closestSphere = {0};
 
-    Vec3d normal;
+    Vec3d   normal;
     Point3d point;
 
     for (int i = 0; i < scene->numSpheres; i++) {
@@ -170,18 +175,21 @@ static uint32_t traceRaySphere(Scene* scene, Point3d origin, Vec3d vpVec, float 
 
 /* DRAWING FUNCTIONS */
 
-void drawBall(texWrapper* myTex, Scene* myScene) {
+void
+drawBall(texWrapper* myTex, Scene* myScene) {
 
     void* pixels;
-    int pitch;
+    int   pitch;
 
     SDL_LockTexture(myTex->texture, NULL, &pixels, &pitch);
 
     static float scaleX = WIDTH_V / WIDTH_C;
     static float scaleY = HEIGHT_V / HEIGHT_C;
 
+    // TODO : Make origin adjustable via ImGui (wrap it in one of the structs)
+
     static Point3d origin = {0};
-    Vec3d vpVec;
+    Vec3d    vpVec;
     uint32_t color;
 
     /* DRAW IMAGE */

@@ -7,7 +7,8 @@
 
 /* NORMALIZE */
 
-Vec3d normalizeVec(Vec3d vec) {
+Vec3d
+normalizeVec(Vec3d vec) {
     float magnitude = sqrt(dotVec(vec, vec));
     if (magnitude > 0.0f) {
         return (Vec3d) {
@@ -21,7 +22,8 @@ Vec3d normalizeVec(Vec3d vec) {
 
 /* SCALAR PRODUCT */
 
-Vec3d scalarProdVec(Vec3d vec, float multiplier) {
+Vec3d
+scalarProdVec(Vec3d vec, float multiplier) {
     return (Vec3d) {
         .x = vec.x * multiplier,
         .y = vec.y * multiplier,
@@ -31,13 +33,15 @@ Vec3d scalarProdVec(Vec3d vec, float multiplier) {
 
 /* DOT PRODUCT */
 
-float dotVec(Vec3d a, Vec3d b) {
+float
+dotVec(Vec3d a, Vec3d b) {
     return (a.x * b.x) + (a.y * b.y) + (a.z * b.z);
 }
 
 /* SUBTRACT */
 
-Vec3d subtractVec(Vec3d a, Vec3d b) {
+Vec3d
+subtractVec(Vec3d a, Vec3d b) {
     return (Vec3d) {
         .x = (a.x - b.x),
         .y = (a.y - b.y),
@@ -47,7 +51,8 @@ Vec3d subtractVec(Vec3d a, Vec3d b) {
 
 /* ADD */
 
-Vec3d addVec(Vec3d a, Vec3d b) {
+Vec3d
+addVec(Vec3d a, Vec3d b) {
     return (Vec3d) {
         .x = (a.x + b.x),
         .y = (a.y + b.y),

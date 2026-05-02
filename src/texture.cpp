@@ -5,7 +5,8 @@
 #include <SDL_image.h>
 #include "texture.h"
 
-texWrapper createTexture(SDL_Renderer* renderer) {
+texWrapper
+createTexture(SDL_Renderer* renderer) {
     texWrapper tempTex;
 
     tempTex.texture = SDL_CreateTexture(
@@ -18,7 +19,8 @@ texWrapper createTexture(SDL_Renderer* renderer) {
 
     return tempTex;
 }
-void freeTexture(texWrapper* myTex) {
+void
+freeTexture(texWrapper* myTex) {
     SDL_DestroyTexture(myTex->texture);
     SDL_FreeFormat(myTex->format);
 }

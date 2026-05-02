@@ -54,6 +54,9 @@ if(WIN32)
     imm32 setupapi winmm gdi32 ole32 oleaut32 uuid version
   )
 else()
+
+  # *** this is untested ***
+
   find_package(SDL2)
   find_package(SDL2_image)
 

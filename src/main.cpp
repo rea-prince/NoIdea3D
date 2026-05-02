@@ -10,7 +10,8 @@
 
 #include "baller.h"
 
-int main(int argc, char *argv[]) {
+int
+main(int argc, char *argv[]) {
 
     /* INITIALIZATION */
 
@@ -51,44 +52,48 @@ int main(int argc, char *argv[]) {
     /* SCENE SETUP */
 
     Scene myScene = {
-        .numLights = 3,
+        .numLights  = 3,
         .numSpheres = 4
     };
 
+    // TODO : Make lighting adjustable via ImGui
+
     myScene.lights[0] = {
-        .type = AMBIENT,
+        .type      = AMBIENT,
         .intensity = 0.2
     };
     myScene.lights[1] = {
-        .position = {2, 1, 0},
-        .type = POINT,
+        .position  = {2, 1, 0},
+        .type      = POINT,
         .intensity = 0.6
     };
     myScene.lights[2] = {
         .direction = {1, 4, 4},
-        .type = DIRECTIONAL,
+        .type      = DIRECTIONAL,
         .intensity = 0.2
     };
+
+    // TODO : Make objects adjustable via ImGui
 
     myScene.spheres[0] = {
         .center = {0, -1, 3},
         .radius = 1,
-        .color = SDL_MapRGBA(myTex.format, 255, 0, 0, 255)
+        .color  = SDL_MapRGBA(myTex.format, 255, 0, 0, 255)
     };
     myScene.spheres[1] = {
         .center = {2, 0, 4},
         .radius = 1,
-        .color = SDL_MapRGBA(myTex.format, 0, 0, 255, 255)
+        .color  = SDL_MapRGBA(myTex.format, 0, 0, 255, 255)
     };
     myScene.spheres[2] = {
         .center = {-2, 0, 4},
         .radius = 1,
-        .color = SDL_MapRGBA(myTex.format, 0, 255, 0, 255)
+        .color  = SDL_MapRGBA(myTex.format, 0, 255, 0, 255)
     };
     myScene.spheres[3] = {
         .center = {0, -5001, 0},
         .radius = 5000,
-        .color = SDL_MapRGBA(myTex.format, 255, 255, 0, 255)
+        .color  = SDL_MapRGBA(myTex.format, 255, 255, 0, 255)
     };
     drawBall(&myTex, &myScene);
 
