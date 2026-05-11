@@ -91,13 +91,13 @@ main(int argc, char *argv[]) {
     .center = {-2, 0, 4},
     .radius = 1,
     .color  = SDL_MapRGBA(myTex.format, 0, 255, 0, 255),
-    .specular = 500
+    .specular = 10
   };
   myScene.spheres[3] = {
     .center = {0, -5001, 0},
     .radius = 5000,
     .color  = SDL_MapRGBA(myTex.format, 255, 255, 0, 255),
-    .specular = 500
+    .specular = 1000
   };
   drawBall(&myTex, &myScene);
 
