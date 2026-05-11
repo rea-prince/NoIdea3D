@@ -17,6 +17,7 @@ typedef struct Sphere {
   Point3d  center;
   float    radius;
   uint32_t color;
+  float specular;
 } Sphere;
 
 typedef struct Light {

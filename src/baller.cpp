@@ -27,7 +27,7 @@
  * @return void
  */
 static inline void
-putPixel(int x, int y, uint32_t color, void* pixels, int pitch) {
+putPixel(int x, int y, uint32_t color, void *pixels, int pitch) {
 
   /* TRANSLATE COORDINATES */
 
@@ -101,9 +101,10 @@ intersectRaySphere(Point3d origin, Vec3d vpVec, Sphere sphere) {
  * @return float Total intensity of light at the given point
  */
 static float
-computeLighting(Scene* scene, Point3d point, Vec3d normal) {
-  float  intensity = 0.0, dotted;
-  Light* lights    = scene->lights;
+computeLighting(Scene *scene, Point3d point, Vec3d normal) {
+  float  dotted;
+  float  intensity = 0.0;
+  Light *lights    = scene->lights;
   Vec3d  reflect;
 
   for (int i = 0; i < scene->numLights; i++) {
@@ -141,7 +142,7 @@ computeLighting(Scene* scene, Point3d point, Vec3d normal) {
  * @return uint32_t Color of the closest point that intersect
  */
 static uint32_t
-traceRaySphere(Scene* scene, Point3d origin, Vec3d vpVec, float min, float max) {
+traceRaySphere(Scene *scene, Point3d origin, Vec3d vpVec, float min, float max) {
   float  closestT      = max;
   Sphere closestSphere = {0};
 
@@ -165,8 +166,9 @@ traceRaySphere(Scene* scene, Point3d origin, Vec3d vpVec, float min, float max) 
     return 0xFFFFFFFF;
   }
 
-  point = addVec(origin, scalarProdVec(vpVec, closestT)); // intersection
+  point  = addVec(origin, scalarProdVec(vpVec, closestT)); // intersection
   normal = normalizeVec(subtractVec(point, closestSphere.center));
+
   setLuminosity(&closestSphere.color, computeLighting(scene, point, normal));
 
   return closestSphere.color;
@@ -176,7 +178,7 @@ traceRaySphere(Scene* scene, Point3d origin, Vec3d vpVec, float min, float max) 
 /* DRAWING FUNCTIONS */
 
 void
-drawBall(texWrapper* myTex, Scene* myScene) {
+drawBall(texWrapper *myTex, Scene *myScene) {
 
   void* pixels;
   int   pitch;

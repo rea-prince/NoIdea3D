@@ -78,22 +78,26 @@ main(int argc, char *argv[]) {
   myScene.spheres[0] = {
     .center = {0, -1, 3},
     .radius = 1,
-    .color  = SDL_MapRGBA(myTex.format, 255, 0, 0, 255)
+    .color  = SDL_MapRGBA(myTex.format, 255, 0, 0, 255),
+    .specular = 500
   };
   myScene.spheres[1] = {
     .center = {2, 0, 4},
     .radius = 1,
-    .color  = SDL_MapRGBA(myTex.format, 0, 0, 255, 255)
+    .color  = SDL_MapRGBA(myTex.format, 0, 0, 255, 255),
+    .specular = 500
   };
   myScene.spheres[2] = {
     .center = {-2, 0, 4},
     .radius = 1,
-    .color  = SDL_MapRGBA(myTex.format, 0, 255, 0, 255)
+    .color  = SDL_MapRGBA(myTex.format, 0, 255, 0, 255),
+    .specular = 500
   };
   myScene.spheres[3] = {
     .center = {0, -5001, 0},
     .radius = 5000,
-    .color  = SDL_MapRGBA(myTex.format, 255, 255, 0, 255)
+    .color  = SDL_MapRGBA(myTex.format, 255, 255, 0, 255),
+    .specular = 500
   };
   drawBall(&myTex, &myScene);
 
