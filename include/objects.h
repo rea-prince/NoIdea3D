@@ -6,6 +6,7 @@
 
 #define MAX_SPHERES 4
 #define MAX_LIGHTING 4
+#define BACKGROUND_COLOR 0xFFFFFFFF
 
 enum LightType {
   AMBIENT     = 0,

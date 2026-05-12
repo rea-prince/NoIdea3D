@@ -3,6 +3,16 @@
 ![SDL2](https://img.shields.io/badge/SDL2-000000?style=flat)
 
 ## NoIdea3D
-This is a C++ implementation of the Raytracing section from Gabriel Gambetta's book [**Computer Graphics from Scratch**](https://gabrielgambetta.com/computer-graphics-from-scratch/) using SDL2. This spawned out of boredom as I had *no idea* what to do.
+NoIdea3D is a C++ implementation of the Raytracing section from Gabriel Gambetta's book [**Computer Graphics from Scratch**](https://gabrielgambetta.com/computer-graphics-from-scratch/) using SDL2. This spawned out of boredom as I had *no idea* what to do.
 
-The functions are almost directly translated from pseudo-code to C++, with some minor tweaks. Do note that I wrote most of the functions in C-style and avoided tried to avoid using C++ features.
+The functions are almost directly translated from pseudo-code to C++, with some minor tweaks. Do note that I wrote most of the functions in C-style and tried to avoid using C++ features.
+
+## Usage
+
+```bash
+cmake -G "MinGW makefiles" -B build/
+cmake build && cd build && make
+./noidea3d
+```
+
+> Note that I have yet to test the build on Linux

@@ -40,7 +40,8 @@ putPixel(int x, int y, uint32_t color, void *pixels, int pitch) {
 
   /* DRAW TO TEXTURE */
 
-  uint32_t* targetPixel = (uint32_t*)((uint8_t*) pixels + (y * pitch) + x * sizeof(uint32_t));
+  uint32_t* targetPixel = (uint32_t*)((uint8_t*) pixels +
+                          (y * pitch) + x * sizeof(uint32_t));
   *targetPixel = color;
 }
 
@@ -101,7 +102,8 @@ intersectRaySphere(Point3d origin, Vec3d vpVec, Sphere sphere) {
  * @return float   Total intensity of light at the given point
  */
 static float
-computeLighting(Scene *scene, Point3d point, Vec3d normal, Vec3d viewVector, float specular) {
+computeLighting(Scene *scene, Point3d point, Vec3d normal,
+                Vec3d viewVector, float specular) {
   float  dottedNL;
   float  dottedRV;
   float  intensity = 0.0;
@@ -120,7 +122,6 @@ computeLighting(Scene *scene, Point3d point, Vec3d normal, Vec3d viewVector, flo
       } else {
         light = lights[i].direction;
       }
-
 
       // diffuse (light source intensity * diffusion ratio or I / A)
 
@@ -151,10 +152,11 @@ computeLighting(Scene *scene, Point3d point, Vec3d normal, Vec3d viewVector, flo
           // light.intensity * pow(r_dot_v/(length(R) * length(V)), s)
 
           intensity += lights[i].intensity * pow(
-            dottedRV /
-            (sqrt(dotVec(reflect, reflect)) * sqrt(dotVec(viewVector, viewVector))),
-            specular
-          );
+                        dottedRV /
+                        (sqrt(dotVec(reflect, reflect)) *
+                          sqrt(dotVec(viewVector, viewVector))),
+                        specular
+                       );
         }
 
       }
@@ -169,6 +171,35 @@ computeLighting(Scene *scene, Point3d point, Vec3d normal, Vec3d viewVector, flo
   return intensity;
 }
 
+/*
+ *
+ */
+static Sphere
+closestIntersection(Scene *scene, Point3d origin, Vec3d vpVec,
+                    float min, float max, float *closestT) {
+
+  Sphere closestSphere = {0};
+
+  // find closest intersecting points
+
+  for (int i = 0; i < scene->numSpheres; i++) {
+    Pair solutions = intersectRaySphere(origin, vpVec, scene->spheres[i]);
+
+    if (solutions.t1 >= min && solutions.t1 < max &&
+        solutions.t1 < *closestT) {
+      *closestT = solutions.t1;
+      closestSphere = scene->spheres[i];
+    }
+    if (solutions.t2 >= min && solutions.t2 < max &&
+        solutions.t2 < *closestT) {
+      *closestT = solutions.t2;
+      closestSphere = scene->spheres[i];
+    }
+  }
+
+  return closestSphere;
+}
+
 
 /* Finds the closest intersecting point from any of the spheres in the scene
  * and returns its color
@@ -181,33 +212,23 @@ computeLighting(Scene *scene, Point3d point, Vec3d normal, Vec3d viewVector, flo
  * @return uint32_t Color of the closest point that intersect
  */
 static uint32_t
-traceRaySphere(Scene *scene, Point3d origin, Vec3d vpVec, float min, float max) {
+traceRaySphere(Scene *scene, Point3d origin, Vec3d vpVec,
+               float min, float max) {
   float  closestT      = max;
-  Sphere closestSphere = {0};
+  Sphere closestSphere = closestIntersection(
+                           scene, origin,
+                           vpVec, min, max,
+                           &closestT
+                         );
 
   Vec3d   normal;
   Vec3d   viewVector;
   Point3d point;
 
-  // find closest intersecting points
-
-  for (int i = 0; i < scene->numSpheres; i++) {
-    Pair solutions = intersectRaySphere(origin, vpVec, scene->spheres[i]);
-
-    if (solutions.t1 >= min && solutions.t1 < max && solutions.t1 < closestT) {
-      closestT = solutions.t1;
-      closestSphere = scene->spheres[i];
-    }
-    if (solutions.t2 >= min && solutions.t2 < max && solutions.t2 < closestT) {
-      closestT = solutions.t2;
-      closestSphere = scene->spheres[i];
-    }
-  }
-
   // return white if none
 
   if (closestSphere.color == 0) {
-    return 0xFFFFFFFF;
+    return BACKGROUND_COLOR;
   }
 
   // compute for luminosity of pixel
@@ -219,7 +240,8 @@ traceRaySphere(Scene *scene, Point3d origin, Vec3d vpVec, float min, float max) 
 
   setLuminosity(
     &closestSphere.color,
-    computeLighting(scene, point, normal, viewVector, closestSphere.specular)
+    computeLighting(scene, point, normal,
+                    viewVector, closestSphere.specular)
   );
 
   // return color with changed luminosity
