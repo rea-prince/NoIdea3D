@@ -76,14 +76,14 @@ main(int argc, char *argv[]) {
   // TODO : Make objects adjustable via ImGui
 
   myScene.spheres[0] = {
-    .center = {0, -1, 3},
+    .center = {0, -1, 5},
     .radius = 1,
     .color  = SDL_MapRGBA(myTex.format, 255, 0, 0, 255),
     .specular = 500,
     .reflective = 0.2
   };
   myScene.spheres[1] = {
-    .center = {2, 0, 4},
+    .center = {1, 0, 4},
     .radius = 1,
     .color  = SDL_MapRGBA(myTex.format, 0, 0, 255, 255),
     .specular = 500,

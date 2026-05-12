@@ -71,6 +71,7 @@ reflectRay(Vec3d normal, Vec3d reflect) {
   );
 }
 
+
 /* Solves for points where the ray and sphere intersect using the equation
  * t^2 <vD, vD> + t (2<vCO, vD>) + <vCO, vCO> - r^2 = 0
  *
