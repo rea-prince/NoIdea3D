@@ -3,7 +3,7 @@
 
 #include <SDL.h>
 
-static uint8_t clamp(float value) {
+uint8_t clamp(float value) {
   if (value < 0.0f) return 0;
   if (value > 255.0f) return 255;
 

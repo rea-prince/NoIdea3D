@@ -10,9 +10,14 @@ The functions are almost directly translated from pseudo-code to C++, with some 
 ## Usage
 
 ```bash
+# Windows
 cmake -G "MinGW makefiles" -B build/
+
+# Unix
+cmake -G "Unix makefiles" -B build/
+
 cmake build && cd build && make
 ./noidea3d
 ```
 
-> Note that I have yet to test the build on Linux
+> Note that I have yet to test the build on Linux.

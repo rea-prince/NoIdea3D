@@ -63,22 +63,29 @@ canvasToViewport(int x, int y) {
   };
 }
 
+static inline Vec3d
+reflectRay(Vec3d normal, Vec3d reflect) {
+  return subtractVec(
+    scalarProdVec(normal, 2 * dotVec(normal, reflect)),
+    reflect
+  );
+}
 
 /* Solves for points where the ray and sphere intersect using the equation
  * t^2 <vD, vD> + t (2<vCO, vD>) + <vCO, vCO> - r^2 = 0
  *
  * @param  origin Location of the camera (where the ray originates)
- * @param  vpVec  Vector coming from the origin
+ * @param  direc  Vector of the ray
  * @param  sphere Contents of the sphere (center, radius, color)
  * @return Pair   Points where the ray intersects with the sphere
  */
 static Pair
-intersectRaySphere(Point3d origin, Vec3d vpVec, Sphere sphere) {
+intersectRaySphere(Point3d origin, Vec3d direc, Sphere sphere) {
 
   Vec3d co = subtractVec(origin, sphere.center);
 
-  float a = dotVec(vpVec, vpVec);
-  float b = 2 * dotVec(co, vpVec);
+  float a = dotVec(direc, direc);
+  float b = 2 * dotVec(co, direc);
   float c = dotVec(co, co) - (sphere.radius * sphere.radius);
 
   float discriminant = b * b - 4 * a * c;
@@ -99,14 +106,14 @@ intersectRaySphere(Point3d origin, Vec3d vpVec, Sphere sphere) {
  *
  * @param  scene    Pointer to the current scene
  * @param  origin   Origin of the ray
- * @param  vpVec    Vector of the ray
+ * @param  direc    Vector of the ray
  * @param  min      Minimum value of the closest point
  * @param  max      Maximum value of the closest point
  * @return closestT Pointer to a variable that will store the distance
  *                  of the closest point
  */
 static Sphere
-closestIntersection(Scene *scene, Point3d origin, Vec3d vpVec,
+closestIntersection(Scene *scene, Point3d origin, Vec3d direc,
                     float min, float max, float *closestT) {
 
   Sphere closestSphere = {0};
@@ -115,7 +122,7 @@ closestIntersection(Scene *scene, Point3d origin, Vec3d vpVec,
   // find closest intersecting points
 
   for (int i = 0; i < scene->numSpheres; i++) {
-    solutions = intersectRaySphere(origin, vpVec, scene->spheres[i]);
+    solutions = intersectRaySphere(origin, direc, scene->spheres[i]);
 
     if (solutions.t1 >= min && solutions.t1 <= max &&
         solutions.t1 < *closestT) {
@@ -139,10 +146,12 @@ closestIntersection(Scene *scene, Point3d origin, Vec3d vpVec,
 
 /* Computes for the total intensity of light at a specific point in the scene
  *
- * @param  scene   Pointer to the current scene
- * @param  Point3d Point to determine the light intensity of
- * @param  normal  The direction of the normal line at the given point
- * @return float   Total intensity of light at the given point
+ * @param  scene      Pointer to the current scene
+ * @param  Point3d    Point to determine the light intensity of
+ * @param  normal     The direction of the normal line at the given point
+ * @param  viewVector Vector coming from the viewport
+ * @param  specular   Specular reflectivity of the object
+ * @return float      Total intensity of light at the given point
  */
 static float
 computeLighting(Scene *scene, Point3d point, Vec3d normal,
@@ -181,7 +190,7 @@ computeLighting(Scene *scene, Point3d point, Vec3d normal,
         point, light,
         0.001f, max, &shadowT
       );
-      if (shadowSphere.radius > 0) {
+      if (shadowT < INFINITY) {
         continue;
       }
 
@@ -202,10 +211,7 @@ computeLighting(Scene *scene, Point3d point, Vec3d normal,
 
         // 2 * N * dot(N, L) - L
 
-        reflect = subtractVec(
-          scalarProdVec(normal, 2 * dotVec(normal, light)),
-          light
-        );
+        reflect = reflectRay(normal, light);
 
         dottedRV = dotVec(reflect, viewVector);
 
@@ -237,20 +243,20 @@ computeLighting(Scene *scene, Point3d point, Vec3d normal,
  * and returns its color
  *
  * @param  scene    Pointer to the current scene
- * @param  origin   Location of the camera (where the ray originates)
- * @param  vpVec    Vector coming from the origin
+ * @param  origin   Origin of the ray
+ * @param  direc    Vector coming from the origin
  * @param  min      Minimum value of the closest point
  * @param  max      Maximum value of the closest point
  * @return uint32_t Color of the closest point that intersect
  */
 static uint32_t
-traceRaySphere(Scene *scene, Point3d origin, Vec3d vpVec,
-               float min, float max) {
+traceRaySphere(Scene *scene, Point3d origin, Vec3d direc,
+               float min, float max, int depth) {
 
   float  closestT      = max;
   Sphere closestSphere = closestIntersection(
                            scene, origin,
-                           vpVec, min, max,
+                           direc, min, max,
                            &closestT
                          );
 
@@ -262,9 +268,25 @@ traceRaySphere(Scene *scene, Point3d origin, Vec3d vpVec,
 
   // compute for luminosity of pixel
 
-  Point3d point      = addVec(origin, scalarProdVec(vpVec, closestT));
-  Vec3d   normal     = normalizeVec(subtractVec(point, closestSphere.center));
-  Vec3d   viewVector = scalarProdVec(vpVec, -1.0);
+  Point3d  point      = addVec(origin, scalarProdVec(direc, closestT));
+  Vec3d    normal     = normalizeVec(subtractVec(point, closestSphere.center));
+  Vec3d    viewVector = scalarProdVec(direc, -1.0);
+  uint32_t localColor = closestSphere.color;
+
+  setLuminosity(
+    &localColor,
+    computeLighting(scene, point, normal,
+                    invertVec(direc),
+                    closestSphere.specular)
+  );
+
+  float reflectivity = closestSphere.reflective;
+
+  // check for recursive limit
+
+  if (depth <= 0 || reflectivity <= 0) {
+    return localColor;
+  }
 
   setLuminosity(
     &closestSphere.color,
@@ -272,9 +294,19 @@ traceRaySphere(Scene *scene, Point3d origin, Vec3d vpVec,
                     viewVector, closestSphere.specular)
   );
 
-  // return color with changed luminosity
+  // recurse for reflectivity
 
-  return closestSphere.color;
+  Vec3d reflectedRay = reflectRay(normal, invertVec(direc));
+
+  uint32_t reflectedColor = traceRaySphere(
+    scene, point, reflectedRay,
+    0.001, INFINITY, depth - 1
+  );
+  setLuminosity(&localColor, (1 - reflectivity));
+  setLuminosity(&reflectedColor, reflectivity);
+
+
+  return addColors(localColor, reflectedColor);
 }
 
 
@@ -296,6 +328,7 @@ drawBall(texWrapper *myTex, Scene *myScene) {
   static Point3d origin = {0};
   Vec3d  vpVec;
   uint32_t color;
+  int depth = 3;
 
   /* DRAW IMAGE */
 
@@ -307,7 +340,7 @@ drawBall(texWrapper *myTex, Scene *myScene) {
         DISTANCE
       }; // vector from the camera (origin) to viewport
 
-      color = traceRaySphere(myScene, origin, vpVec, 1, INFINITY);
+      color = traceRaySphere(myScene, origin, vpVec, 1, INFINITY, depth);
       putPixel(x, y, color, pixels, pitch);
     }
   }

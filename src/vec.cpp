@@ -20,6 +20,17 @@ normalizeVec(Vec3d vec) {
   return (Vec3d) {0};
 }
 
+/* INVERT */
+
+Vec3d
+invertVec(Vec3d vec) {
+  return (Vec3d) {
+    .x = -vec.x,
+    .y = -vec.y,
+    .z = -vec.z
+  };
+}
+
 /* SCALAR PRODUCT */
 
 Vec3d

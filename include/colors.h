@@ -1,6 +1,7 @@
 #ifndef COLORS_H
 #define COLORS_H
 
+uint8_t clamp(float value);
 void setLuminosity(uint32_t *myColor, float intensity);
 uint32_t addColors(uint32_t myColor1, uint32_t myColor2);
 
