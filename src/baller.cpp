@@ -270,7 +270,7 @@ traceRaySphere(Scene *scene, Point3d origin, Vec3d direc,
 
   Point3d  point      = addVec(origin, scalarProdVec(direc, closestT));
   Vec3d    normal     = normalizeVec(subtractVec(point, closestSphere.center));
-  Vec3d    viewVector = scalarProdVec(direc, -1.0);
+  Vec3d    viewVector = scalarProdVec(direc, -1.0f);
   uint32_t localColor = closestSphere.color;
 
   setLuminosity(
@@ -288,19 +288,13 @@ traceRaySphere(Scene *scene, Point3d origin, Vec3d direc,
     return localColor;
   }
 
-  setLuminosity(
-    &closestSphere.color,
-    computeLighting(scene, point, normal,
-                    viewVector, closestSphere.specular)
-  );
-
   // recurse for reflectivity
 
   Vec3d reflectedRay = reflectRay(normal, invertVec(direc));
 
   uint32_t reflectedColor = traceRaySphere(
     scene, point, reflectedRay,
-    0.001, INFINITY, depth - 1
+    0.04f, INFINITY, depth - 1
   );
   setLuminosity(&localColor, (1 - reflectivity));
   setLuminosity(&reflectedColor, reflectivity);
