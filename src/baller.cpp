@@ -320,9 +320,10 @@ drawBall(texWrapper *myTex, Scene *myScene) {
   // TODO : Make origin adjustable via ImGui (wrap it in one of the structs)
 
   static Point3d origin = {0};
-  Vec3d  vpVec;
+
+  Vec3d    vpVec;
   uint32_t color;
-  int depth = 3;
+  int      depth = 3; // anything >3 makes only a minimal difference
 
   /* DRAW IMAGE */
 
