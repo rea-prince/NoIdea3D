@@ -6,7 +6,7 @@
 
 #define MAX_SPHERES 4
 #define MAX_LIGHTING 4
-#define BACKGROUND_COLOR 0xFFFFFFFF
+#define BACKGROUND_COLOR 0x000000FF
 
 enum LightType {
   AMBIENT     = 0,
@@ -18,7 +18,7 @@ typedef struct Sphere {
   Point3d  center;
   float    radius;
   uint32_t color;
-  float specular;
+  float    specular;
 } Sphere;
 
 typedef struct Light {

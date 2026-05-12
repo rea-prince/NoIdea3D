@@ -11,6 +11,9 @@ CMakeFiles/noidea3d.dir/src/baller.cpp.obj: \
  C:/ProgramData/mingw64/mingw64/x86_64-w64-mingw32/include/_mingw_off_t.h \
  C:/ProgramData/mingw64/mingw64/x86_64-w64-mingw32/include/swprintf.inl \
  C:/ProgramData/mingw64/mingw64/x86_64-w64-mingw32/include/sec_api/stdio_s.h \
+ C:/ProgramData/mingw64/mingw64/x86_64-w64-mingw32/include/string.h \
+ C:/ProgramData/mingw64/mingw64/x86_64-w64-mingw32/include/crtdefs.h \
+ C:/ProgramData/mingw64/mingw64/x86_64-w64-mingw32/include/sec_api/string_s.h \
  C:/dev/_projects/noidea/include/SDL2/SDL.h \
  C:/dev/_projects/noidea/include/SDL2/SDL_main.h \
  C:/dev/_projects/noidea/include/SDL2/SDL_stdinc.h \
@@ -24,7 +27,6 @@ CMakeFiles/noidea3d.dir/src/baller.cpp.obj: \
  C:/ProgramData/mingw64/mingw64/x86_64-w64-mingw32/include/sdkddkver.h \
  C:/ProgramData/mingw64/mingw64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/stddef.h \
  C:/ProgramData/mingw64/mingw64/x86_64-w64-mingw32/include/stddef.h \
- C:/ProgramData/mingw64/mingw64/x86_64-w64-mingw32/include/crtdefs.h \
  C:/ProgramData/mingw64/mingw64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/stdarg.h \
  C:/ProgramData/mingw64/mingw64/x86_64-w64-mingw32/include/stdarg.h \
  C:/ProgramData/mingw64/mingw64/x86_64-w64-mingw32/include/_mingw_stdarg.h \

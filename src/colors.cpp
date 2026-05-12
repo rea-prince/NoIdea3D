@@ -31,10 +31,18 @@ setLuminosity(uint32_t* myColor, float intensity) {
 uint32_t
 addColors(uint32_t myColor1, uint32_t myColor2) {
 
-  uint32_t r = clamp(((myColor1 >> 24) & 0xFF) + ((myColor2 >> 24) & 0xFF)) << 24;
-  uint32_t g = clamp(((myColor1 >> 16) & 0xFF) + ((myColor2 >> 16) & 0xFF)) << 16;
-  uint32_t b = clamp(((myColor1 >> 8) & 0xFF) + ((myColor2 >> 8) & 0xFF)) << 8;
-  uint32_t a = clamp(((myColor1 & 0xFF)) + ((myColor2 & 0xFF)));
+  uint32_t r = clamp(
+                 ((myColor1 >> 24) & 0xFF) + ((myColor2 >> 24) & 0xFF)
+               ) << 24;
+  uint32_t g = clamp(
+                ((myColor1 >> 16) & 0xFF) + ((myColor2 >> 16) & 0xFF)
+               ) << 16;
+  uint32_t b = clamp(
+                ((myColor1 >> 8) & 0xFF) + ((myColor2 >> 8) & 0xFF)
+               ) << 8;
+  uint32_t a = clamp(
+                (myColor1 & 0xFF) + (myColor2 & 0xFF)
+               );
 
   return r | g | b | a;
 }

@@ -192,12 +192,14 @@ CMakeFiles/noidea3d.dir/src/baller.cpp.obj: C:/dev/_projects/noidea/src/baller.c
   C:/ProgramData/mingw64/mingw64/x86_64-w64-mingw32/include/sdks/_mingw_ddk.h \
   C:/ProgramData/mingw64/mingw64/x86_64-w64-mingw32/include/sec_api/stdio_s.h \
   C:/ProgramData/mingw64/mingw64/x86_64-w64-mingw32/include/sec_api/stdlib_s.h \
+  C:/ProgramData/mingw64/mingw64/x86_64-w64-mingw32/include/sec_api/string_s.h \
   C:/ProgramData/mingw64/mingw64/x86_64-w64-mingw32/include/setjmp.h \
   C:/ProgramData/mingw64/mingw64/x86_64-w64-mingw32/include/stdarg.h \
   C:/ProgramData/mingw64/mingw64/x86_64-w64-mingw32/include/stddef.h \
   C:/ProgramData/mingw64/mingw64/x86_64-w64-mingw32/include/stdint.h \
   C:/ProgramData/mingw64/mingw64/x86_64-w64-mingw32/include/stdio.h \
   C:/ProgramData/mingw64/mingw64/x86_64-w64-mingw32/include/stdlib.h \
+  C:/ProgramData/mingw64/mingw64/x86_64-w64-mingw32/include/string.h \
   C:/ProgramData/mingw64/mingw64/x86_64-w64-mingw32/include/swprintf.inl \
   C:/ProgramData/mingw64/mingw64/x86_64-w64-mingw32/include/sys/types.h \
   C:/ProgramData/mingw64/mingw64/x86_64-w64-mingw32/include/vadefs.h \
@@ -982,9 +984,9 @@ C:/ProgramData/mingw64/mingw64/x86_64-w64-mingw32/include/_mingw_mac.h:
 
 C:/ProgramData/mingw64/mingw64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx10_2-512minmaxintrin.h:
 
-C:/ProgramData/mingw64/mingw64/x86_64-w64-mingw32/include/string.h:
-
 C:/dev/_projects/noidea/include/SDL2/SDL_rwops.h:
+
+C:/ProgramData/mingw64/mingw64/x86_64-w64-mingw32/include/string.h:
 
 C:/ProgramData/mingw64/mingw64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/amxcomplexintrin.h:
 

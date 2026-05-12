@@ -2,6 +2,7 @@
 #define BALLER_CPP
 
 #include <stdio.h>
+#include <string.h>
 #include <SDL.h>
 #include <SDL_image.h>
 #include <math.h>
@@ -80,7 +81,8 @@ intersectRaySphere(Point3d origin, Vec3d vpVec, Sphere sphere) {
   float b = 2 * dotVec(co, vpVec);
   float c = dotVec(co, co) - (sphere.radius * sphere.radius);
 
-  float discriminant = b*b - 4*a*c;
+  float discriminant = b * b - 4 * a * c;
+
   if (discriminant < 0) {
     return (Pair) {
       INFINITY, INFINITY
@@ -91,6 +93,47 @@ intersectRaySphere(Point3d origin, Vec3d vpVec, Sphere sphere) {
     .t1 = (-b + (float)sqrt(discriminant)) / (2*a),
     .t2 = (-b - (float)sqrt(discriminant)) / (2*a),
   };
+}
+
+/* Finds the closest intersecting sphere given a viewport vector
+ *
+ * @param  scene    Pointer to the current scene
+ * @param  origin   Origin of the ray
+ * @param  vpVec    Vector of the ray
+ * @param  min      Minimum value of the closest point
+ * @param  max      Maximum value of the closest point
+ * @return closestT Pointer to a variable that will store the distance
+ *                  of the closest point
+ */
+static Sphere
+closestIntersection(Scene *scene, Point3d origin, Vec3d vpVec,
+                    float min, float max, float *closestT) {
+
+  Sphere closestSphere = {0};
+  Pair   solutions;
+
+  // find closest intersecting points
+
+  for (int i = 0; i < scene->numSpheres; i++) {
+    solutions = intersectRaySphere(origin, vpVec, scene->spheres[i]);
+
+    if (solutions.t1 >= min && solutions.t1 <= max &&
+        solutions.t1 < *closestT) {
+
+      *closestT      = solutions.t1;
+       closestSphere = scene->spheres[i];
+
+    }
+    if (solutions.t2 >= min && solutions.t2 <= max &&
+        solutions.t2 < *closestT) {
+
+      *closestT      = solutions.t2;
+       closestSphere = scene->spheres[i];
+
+    }
+  }
+
+  return closestSphere;
 }
 
 
@@ -104,12 +147,18 @@ intersectRaySphere(Point3d origin, Vec3d vpVec, Sphere sphere) {
 static float
 computeLighting(Scene *scene, Point3d point, Vec3d normal,
                 Vec3d viewVector, float specular) {
-  float  dottedNL;
-  float  dottedRV;
-  float  intensity = 0.0;
-  Light *lights    = scene->lights;
+
+  float dottedNL;
+  float dottedRV;
+  float intensity = 0.0;
+  float max;
+  float shadowT = INFINITY;
+
+  Light *lights = scene->lights;
   Vec3d  light;
   Vec3d  reflect;
+
+  Sphere shadowSphere = {0};
 
   // go through all light sources
 
@@ -119,8 +168,21 @@ computeLighting(Scene *scene, Point3d point, Vec3d normal,
     } else {
       if (lights[i].type == POINT) {
         light = subtractVec(lights[i].position, point);
+        max = 1.0f;
       } else {
         light = lights[i].direction;
+        max = INFINITY;
+      }
+
+      // check for shadows or intersections of light with another object
+
+      shadowSphere = closestIntersection(
+        scene,
+        point, light,
+        0.001f, max, &shadowT
+      );
+      if (shadowSphere.radius > 0) {
+        continue;
       }
 
       // diffuse (light source intensity * diffusion ratio or I / A)
@@ -171,36 +233,6 @@ computeLighting(Scene *scene, Point3d point, Vec3d normal,
   return intensity;
 }
 
-/*
- *
- */
-static Sphere
-closestIntersection(Scene *scene, Point3d origin, Vec3d vpVec,
-                    float min, float max, float *closestT) {
-
-  Sphere closestSphere = {0};
-
-  // find closest intersecting points
-
-  for (int i = 0; i < scene->numSpheres; i++) {
-    Pair solutions = intersectRaySphere(origin, vpVec, scene->spheres[i]);
-
-    if (solutions.t1 >= min && solutions.t1 < max &&
-        solutions.t1 < *closestT) {
-      *closestT = solutions.t1;
-      closestSphere = scene->spheres[i];
-    }
-    if (solutions.t2 >= min && solutions.t2 < max &&
-        solutions.t2 < *closestT) {
-      *closestT = solutions.t2;
-      closestSphere = scene->spheres[i];
-    }
-  }
-
-  return closestSphere;
-}
-
-
 /* Finds the closest intersecting point from any of the spheres in the scene
  * and returns its color
  *
@@ -214,16 +246,13 @@ closestIntersection(Scene *scene, Point3d origin, Vec3d vpVec,
 static uint32_t
 traceRaySphere(Scene *scene, Point3d origin, Vec3d vpVec,
                float min, float max) {
+
   float  closestT      = max;
   Sphere closestSphere = closestIntersection(
                            scene, origin,
                            vpVec, min, max,
                            &closestT
                          );
-
-  Vec3d   normal;
-  Vec3d   viewVector;
-  Point3d point;
 
   // return white if none
 
@@ -233,10 +262,9 @@ traceRaySphere(Scene *scene, Point3d origin, Vec3d vpVec,
 
   // compute for luminosity of pixel
 
-  point  = addVec(origin, scalarProdVec(vpVec, closestT)); // intersection
-  normal = normalizeVec(subtractVec(point, closestSphere.center));
-
-  viewVector = scalarProdVec(vpVec, -1.0);
+  Point3d point      = addVec(origin, scalarProdVec(vpVec, closestT));
+  Vec3d   normal     = normalizeVec(subtractVec(point, closestSphere.center));
+  Vec3d   viewVector = scalarProdVec(vpVec, -1.0);
 
   setLuminosity(
     &closestSphere.color,
