@@ -63,12 +63,10 @@ CMAKE_BINARY_DIR = C:\dev\_projects\noidea\build
 
 # The main recursive "all" target.
 all: CMakeFiles/noidea3d.dir/all
-all: CMakeFiles/IMGUI_LIB.dir/all
 .PHONY : all
 
 # The main recursive "codegen" target.
 codegen: CMakeFiles/noidea3d.dir/codegen
-codegen: CMakeFiles/IMGUI_LIB.dir/codegen
 .PHONY : codegen
 
 # The main recursive "preinstall" target.
@@ -77,22 +75,21 @@ preinstall:
 
 # The main recursive "clean" target.
 clean: CMakeFiles/noidea3d.dir/clean
-clean: CMakeFiles/IMGUI_LIB.dir/clean
 .PHONY : clean
 
 #=============================================================================
 # Target rules for target CMakeFiles/noidea3d.dir
 
 # All Build rule for target.
-CMakeFiles/noidea3d.dir/all: CMakeFiles/IMGUI_LIB.dir/all
+CMakeFiles/noidea3d.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\noidea3d.dir\build.make CMakeFiles/noidea3d.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\noidea3d.dir\build.make CMakeFiles/noidea3d.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=C:\dev\_projects\noidea\build\CMakeFiles --progress-num=9,10,11,12,13,14 "Built target noidea3d"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=C:\dev\_projects\noidea\build\CMakeFiles --progress-num=1,2,3,4,5,6 "Built target noidea3d"
 .PHONY : CMakeFiles/noidea3d.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/noidea3d.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start C:\dev\_projects\noidea\build\CMakeFiles 14
+	$(CMAKE_COMMAND) -E cmake_progress_start C:\dev\_projects\noidea\build\CMakeFiles 6
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 CMakeFiles/noidea3d.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start C:\dev\_projects\noidea\build\CMakeFiles 0
 .PHONY : CMakeFiles/noidea3d.dir/rule
@@ -104,45 +101,13 @@ noidea3d: CMakeFiles/noidea3d.dir/rule
 # codegen rule for target.
 CMakeFiles/noidea3d.dir/codegen:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\noidea3d.dir\build.make CMakeFiles/noidea3d.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=C:\dev\_projects\noidea\build\CMakeFiles --progress-num=9,10,11,12,13,14 "Finished codegen for target noidea3d"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=C:\dev\_projects\noidea\build\CMakeFiles --progress-num=1,2,3,4,5,6 "Finished codegen for target noidea3d"
 .PHONY : CMakeFiles/noidea3d.dir/codegen
 
 # clean rule for target.
 CMakeFiles/noidea3d.dir/clean:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\noidea3d.dir\build.make CMakeFiles/noidea3d.dir/clean
 .PHONY : CMakeFiles/noidea3d.dir/clean
-
-#=============================================================================
-# Target rules for target CMakeFiles/IMGUI_LIB.dir
-
-# All Build rule for target.
-CMakeFiles/IMGUI_LIB.dir/all:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\IMGUI_LIB.dir\build.make CMakeFiles/IMGUI_LIB.dir/depend
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\IMGUI_LIB.dir\build.make CMakeFiles/IMGUI_LIB.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=C:\dev\_projects\noidea\build\CMakeFiles --progress-num=1,2,3,4,5,6,7,8 "Built target IMGUI_LIB"
-.PHONY : CMakeFiles/IMGUI_LIB.dir/all
-
-# Build rule for subdir invocation for target.
-CMakeFiles/IMGUI_LIB.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start C:\dev\_projects\noidea\build\CMakeFiles 8
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 CMakeFiles/IMGUI_LIB.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start C:\dev\_projects\noidea\build\CMakeFiles 0
-.PHONY : CMakeFiles/IMGUI_LIB.dir/rule
-
-# Convenience name for target.
-IMGUI_LIB: CMakeFiles/IMGUI_LIB.dir/rule
-.PHONY : IMGUI_LIB
-
-# codegen rule for target.
-CMakeFiles/IMGUI_LIB.dir/codegen:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\IMGUI_LIB.dir\build.make CMakeFiles/IMGUI_LIB.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=C:\dev\_projects\noidea\build\CMakeFiles --progress-num=1,2,3,4,5,6,7,8 "Finished codegen for target IMGUI_LIB"
-.PHONY : CMakeFiles/IMGUI_LIB.dir/codegen
-
-# clean rule for target.
-CMakeFiles/IMGUI_LIB.dir/clean:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\IMGUI_LIB.dir\build.make CMakeFiles/IMGUI_LIB.dir/clean
-.PHONY : CMakeFiles/IMGUI_LIB.dir/clean
 
 #=============================================================================
 # Special targets to cleanup operation of make.

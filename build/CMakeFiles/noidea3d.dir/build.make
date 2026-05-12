@@ -163,7 +163,6 @@ noidea3d.exe: CMakeFiles/noidea3d.dir/src/main.cpp.obj
 noidea3d.exe: CMakeFiles/noidea3d.dir/src/texture.cpp.obj
 noidea3d.exe: CMakeFiles/noidea3d.dir/src/vec.cpp.obj
 noidea3d.exe: CMakeFiles/noidea3d.dir/build.make
-noidea3d.exe: libIMGUI_LIB.a
 noidea3d.exe: C:/dev/_projects/noidea/lib/SDL2/win/libSDL2main.a
 noidea3d.exe: C:/dev/_projects/noidea/lib/SDL2/win/libSDL2.a
 noidea3d.exe: C:/dev/_projects/noidea/lib/SDL2/win/libSDL2_image.a

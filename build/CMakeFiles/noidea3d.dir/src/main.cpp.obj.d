@@ -1,42 +1,5 @@
 CMakeFiles/noidea3d.dir/src/main.cpp.obj: \
  C:\dev\_projects\noidea\src\main.cpp \
- C:/dev/_projects/noidea/include/imgui/imgui.h \
- C:/dev/_projects/noidea/include/imgui/imconfig.h \
- C:/ProgramData/mingw64/mingw64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/float.h \
- C:/ProgramData/mingw64/mingw64/x86_64-w64-mingw32/include/float.h \
- C:/ProgramData/mingw64/mingw64/x86_64-w64-mingw32/include/crtdefs.h \
- C:/ProgramData/mingw64/mingw64/x86_64-w64-mingw32/include/corecrt.h \
- C:/ProgramData/mingw64/mingw64/x86_64-w64-mingw32/include/_mingw.h \
- C:/ProgramData/mingw64/mingw64/x86_64-w64-mingw32/include/_mingw_mac.h \
- C:/ProgramData/mingw64/mingw64/x86_64-w64-mingw32/include/_mingw_secapi.h \
- C:/ProgramData/mingw64/mingw64/x86_64-w64-mingw32/include/vadefs.h \
- C:/ProgramData/mingw64/mingw64/x86_64-w64-mingw32/include/sdks/_mingw_ddk.h \
- C:/ProgramData/mingw64/mingw64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/stdarg.h \
- C:/ProgramData/mingw64/mingw64/x86_64-w64-mingw32/include/stdarg.h \
- C:/ProgramData/mingw64/mingw64/x86_64-w64-mingw32/include/_mingw_stdarg.h \
- C:/ProgramData/mingw64/mingw64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/stddef.h \
- C:/ProgramData/mingw64/mingw64/x86_64-w64-mingw32/include/stddef.h \
- C:/ProgramData/mingw64/mingw64/x86_64-w64-mingw32/include/string.h \
- C:/ProgramData/mingw64/mingw64/x86_64-w64-mingw32/include/sec_api/string_s.h \
- C:/ProgramData/mingw64/mingw64/x86_64-w64-mingw32/include/assert.h \
- C:/ProgramData/mingw64/mingw64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/stdlib.h \
- C:/ProgramData/mingw64/mingw64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/cstdlib \
- C:/ProgramData/mingw64/mingw64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/x86_64-w64-mingw32/bits/c++config.h \
- C:/ProgramData/mingw64/mingw64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/x86_64-w64-mingw32/bits/os_defines.h \
- C:/ProgramData/mingw64/mingw64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/x86_64-w64-mingw32/bits/cpu_defines.h \
- C:/ProgramData/mingw64/mingw64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/pstl/pstl_config.h \
- C:/ProgramData/mingw64/mingw64/x86_64-w64-mingw32/include/stdlib.h \
- C:/ProgramData/mingw64/mingw64/x86_64-w64-mingw32/include/corecrt_wstdlib.h \
- C:/ProgramData/mingw64/mingw64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/limits.h \
- C:/ProgramData/mingw64/mingw64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/syslimits.h \
- C:/ProgramData/mingw64/mingw64/x86_64-w64-mingw32/include/limits.h \
- C:/ProgramData/mingw64/mingw64/x86_64-w64-mingw32/include/sec_api/stdlib_s.h \
- C:/ProgramData/mingw64/mingw64/x86_64-w64-mingw32/include/malloc.h \
- C:/ProgramData/mingw64/mingw64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/mm_malloc.h \
- C:/ProgramData/mingw64/mingw64/x86_64-w64-mingw32/include/errno.h \
- C:/ProgramData/mingw64/mingw64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/bits/std_abs.h \
- C:/dev/_projects/noidea/include/imgui/imgui_impl_sdl2.h \
- C:/dev/_projects/noidea/include/imgui/imgui_impl_sdlrenderer2.h \
  C:/dev/_projects/noidea/include/SDL2/SDL.h \
  C:/dev/_projects/noidea/include/SDL2/SDL_main.h \
  C:/dev/_projects/noidea/include/SDL2/SDL_stdinc.h \
@@ -48,6 +11,18 @@ CMakeFiles/noidea3d.dir/src/main.cpp.obj: \
  C:/ProgramData/mingw64/mingw64/x86_64-w64-mingw32/include/winsdkver.h \
  C:/ProgramData/mingw64/mingw64/x86_64-w64-mingw32/include/winapifamily.h \
  C:/ProgramData/mingw64/mingw64/x86_64-w64-mingw32/include/sdkddkver.h \
+ C:/ProgramData/mingw64/mingw64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/stddef.h \
+ C:/ProgramData/mingw64/mingw64/x86_64-w64-mingw32/include/stddef.h \
+ C:/ProgramData/mingw64/mingw64/x86_64-w64-mingw32/include/crtdefs.h \
+ C:/ProgramData/mingw64/mingw64/x86_64-w64-mingw32/include/corecrt.h \
+ C:/ProgramData/mingw64/mingw64/x86_64-w64-mingw32/include/_mingw.h \
+ C:/ProgramData/mingw64/mingw64/x86_64-w64-mingw32/include/_mingw_mac.h \
+ C:/ProgramData/mingw64/mingw64/x86_64-w64-mingw32/include/_mingw_secapi.h \
+ C:/ProgramData/mingw64/mingw64/x86_64-w64-mingw32/include/vadefs.h \
+ C:/ProgramData/mingw64/mingw64/x86_64-w64-mingw32/include/sdks/_mingw_ddk.h \
+ C:/ProgramData/mingw64/mingw64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/stdarg.h \
+ C:/ProgramData/mingw64/mingw64/x86_64-w64-mingw32/include/stdarg.h \
+ C:/ProgramData/mingw64/mingw64/x86_64-w64-mingw32/include/_mingw_stdarg.h \
  C:/ProgramData/mingw64/mingw64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/stdint.h \
  C:/ProgramData/mingw64/mingw64/x86_64-w64-mingw32/include/stdint.h \
  C:/dev/_projects/noidea/include/SDL2/SDL_assert.h \
@@ -67,6 +42,22 @@ CMakeFiles/noidea3d.dir/src/main.cpp.obj: \
  C:/ProgramData/mingw64/mingw64/x86_64-w64-mingw32/include/intrin.h \
  C:/ProgramData/mingw64/mingw64/x86_64-w64-mingw32/include/setjmp.h \
  C:/ProgramData/mingw64/mingw64/x86_64-w64-mingw32/include/psdk_inc/intrin-impl.h \
+ C:/ProgramData/mingw64/mingw64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/stdlib.h \
+ C:/ProgramData/mingw64/mingw64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/cstdlib \
+ C:/ProgramData/mingw64/mingw64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/x86_64-w64-mingw32/bits/c++config.h \
+ C:/ProgramData/mingw64/mingw64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/x86_64-w64-mingw32/bits/os_defines.h \
+ C:/ProgramData/mingw64/mingw64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/x86_64-w64-mingw32/bits/cpu_defines.h \
+ C:/ProgramData/mingw64/mingw64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/pstl/pstl_config.h \
+ C:/ProgramData/mingw64/mingw64/x86_64-w64-mingw32/include/stdlib.h \
+ C:/ProgramData/mingw64/mingw64/x86_64-w64-mingw32/include/corecrt_wstdlib.h \
+ C:/ProgramData/mingw64/mingw64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/limits.h \
+ C:/ProgramData/mingw64/mingw64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/syslimits.h \
+ C:/ProgramData/mingw64/mingw64/x86_64-w64-mingw32/include/limits.h \
+ C:/ProgramData/mingw64/mingw64/x86_64-w64-mingw32/include/sec_api/stdlib_s.h \
+ C:/ProgramData/mingw64/mingw64/x86_64-w64-mingw32/include/malloc.h \
+ C:/ProgramData/mingw64/mingw64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/mm_malloc.h \
+ C:/ProgramData/mingw64/mingw64/x86_64-w64-mingw32/include/errno.h \
+ C:/ProgramData/mingw64/mingw64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/bits/std_abs.h \
  C:/ProgramData/mingw64/mingw64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/x86intrin.h \
  C:/ProgramData/mingw64/mingw64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/x86gprintrin.h \
  C:/ProgramData/mingw64/mingw64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/ia32intrin.h \

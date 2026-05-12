@@ -59,5 +59,4 @@ set(CMAKE_MAKEFILE_PRODUCTS
 # Dependency information for all targets:
 set(CMAKE_DEPEND_INFO_FILES
   "CMakeFiles/noidea3d.dir/DependInfo.cmake"
-  "CMakeFiles/IMGUI_LIB.dir/DependInfo.cmake"
   )
